@@ -7,8 +7,8 @@
 -debug:full
 -nostdlib
 -nologo
-"C:\Projects\Novini\src\Novini\obj\Debug\netcoreapp1.0\dotnet-compile.assemblyinfo.cs"
--out:"C:\Projects\Novini\src\Novini\bin\Debug\netcoreapp1.0\Novini.dll"
+"C:\Projects\novini_web\src\Novini\obj\Debug\netcoreapp1.0\dotnet-compile.assemblyinfo.cs"
+-out:"C:\Projects\novini_web\src\Novini\bin\Debug\netcoreapp1.0\Novini.dll"
 -r:"C:\Users\dmitr\.nuget\packages\BundlerMinifier.Core\2.2.281\lib\netcoreapp1.0\dotnet-bundle.dll"
 -r:"C:\Users\dmitr\.nuget\packages\Dapper\1.50.2\lib\netstandard1.3\Dapper.dll"
 -r:"C:\Users\dmitr\.nuget\packages\Microsoft.ApplicationInsights\2.1.0\lib\dotnet5.4\Microsoft.ApplicationInsights.dll"
@@ -198,9 +198,10 @@
 -r:"C:\Users\dmitr\.nuget\packages\System.Xml.ReaderWriter\4.0.11\ref\netstandard1.3\System.Xml.ReaderWriter.dll"
 -r:"C:\Users\dmitr\.nuget\packages\System.Xml.XDocument\4.0.11\ref\netstandard1.3\System.Xml.XDocument.dll"
 -r:"C:\Users\dmitr\.nuget\packages\System.Xml.XmlDocument\4.0.1\ref\netstandard1.3\System.Xml.XmlDocument.dll"
--resource:"C:\Projects\Novini\src\Novini\obj\Debug\netcoreapp1.0\Novinidotnet-compile.deps.json",Novini.deps.json
-"C:\Projects\Novini\src\Novini\Program.cs"
-"C:\Projects\Novini\src\Novini\Startup.cs"
-"C:\Projects\Novini\src\Novini\Controllers\HomeController.cs"
-"C:\Projects\Novini\src\Novini\Models\NewsModel.cs"
-"C:\Projects\Novini\src\Novini\Repository\NewsRepository.cs"
+-resource:"C:\Projects\novini_web\src\Novini\obj\Debug\netcoreapp1.0\Novinidotnet-compile.deps.json",Novini.deps.json
+"C:\Projects\novini_web\src\Novini\Program.cs"
+"C:\Projects\novini_web\src\Novini\Startup.cs"
+"C:\Projects\novini_web\src\Novini\Controllers\AdminController.cs"
+"C:\Projects\novini_web\src\Novini\Controllers\HomeController.cs"
+"C:\Projects\novini_web\src\Novini\Models\NewsModel.cs"
+"C:\Projects\novini_web\src\Novini\Repository\NewsRepository.cs"

@@ -6,38 +6,81 @@
     <title>@ViewData["Title"] - NOVINI.UA</title>
 
     <link rel="stylesheet" href="~/lib/bootstrap/scss/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/scss/site.min.css" />
 </head>
 <body>
 
-    <nav class="navbar navbar-light navbar-fixed-top bg-faded">
-        <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">
+    <nav class="navbar navbar-light bg-faded card-header">
+        <label class="navbar-toggler hidden-sm-up" for="menucheckbox">
             &#9776;
-        </button>
+        </label>
+        <input type="checkbox" id="menucheckbox" class="hidden-xs-up" />
         <div class="collapse container navbar-toggleable-xs" id="exCollapsingNavbar2">
-            <a class="navbar-brand" href="#">NOVINI.UA</a>
+            <div class="col-md-4">
+                <a class="navbar-brand pull-md-left pull-lg-left" href="#">NOVINI.UA</a>
+                <a class="btn btn-success pull-md-left pull-lg-left" id="addNewsButton" href="#">Додати новину</a>
+            </div>
             <ul class="nav navbar-nav pull-md-right">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
+                    <a class="nav-link col-md-12" href="#">Контакти <span class="sr-only">(current)</span></a>
                 </li>
             </ul>
-            <a class="btn btn-success" href="#">Додати новину</a>
         </div>
     </nav>
 
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; 2016 - Novini</p>
-        </footer>
     </div>
 
-    <script src="~/lib/jquery/dist/jquery.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <footer class="card-footer">
+        <div class="container">
+            <div class="col-md-12">
+                <p>&copy; 2016 - Novini</p>
+            </div>
+        </div>
+    </footer>
+    
+    @*Modal window*@
+    <div class="overlay hidden-xs-up" id="overlay">
+        <div class="modal-content">
+            <span class="button-close" onclick="closeModal();"></span>
+            <form action="/Home/AddNewsItem" method="post" id="addNewsItem">
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Заголовок</label>
+                    <input type="text" class="form-control" name="title" placeholder="Заголовок">
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput2">Текст</label>
+                    <input type="text" class="form-control" name="content" placeholder="Текст">
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput2">Адреса посилання(URL)</label>
+                    <input type="text" class="form-control" name="url" placeholder="http://">
+                </div>
+                <input type="submit" class="btn btn-primary offset-md-10 offset-lg-10" value="Додати"/>
+            </form>
+        </div>
+    </div>
+
+    @*ok message*@
+    <div id="okmessage">
+        <div class="container">
+            <div class="alert alert-success offset-md-3 offset-xs-0 offset-sm-0 col-md-6 col-xs-12 col-sm-12"  role="alert">
+                <strong>Дякуємо!</strong> Новина з'явиться на сайті після перевірки модератором.
+            </div>
+        </div>
+    </div>
+
+    @*error message*@
+    <div id="errormessage">
+        <div class="container">
+            <div class="alert alert-danger offset-md-3 offset-xs-0 offset-sm-0 col-md-6 col-xs-12 col-sm-12" role="alert">
+                <strong>Помилка!</strong> Не вдалося додати новину.
+            </div>
+        </div>
+    </div>
+
     <script src="~/js/site.js" asp-append-version="true"></script>
 
     @RenderSection("scripts", required: false)

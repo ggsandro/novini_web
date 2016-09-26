@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Novini.Models;
 using Novini.Repository;
+using System.Linq;
 
 namespace Novini.Controllers
 {
@@ -9,14 +10,15 @@ namespace Novini.Controllers
         public IActionResult Index()
         {
             var repository = new NewsRepository();
-            var model = repository.TakeApprovedNews();
-            return View();
+            var model = repository.TakeApprovedNews().ToList();
+            return View(model);
         }
 
-        public void AddNewsItem(NewsModel newsModel)
+        public string AddNewsItem(NewsModel newsModel)
         {
             var repository = new NewsRepository();
             repository.AddNewsItem(newsModel);
+            return "ok";
         }
     }
 }

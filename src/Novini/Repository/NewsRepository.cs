@@ -14,7 +14,7 @@ namespace Novini.Repository
             //using (var sqlConnection = new SqlConnection("Server=(localdb)\v11.0;Integrated Security=true;"))
             using (IDbConnection connection = new SqlConnection(@"Server=DESKTOP-R4SAAK4\SQLEXPRESS;Initial Catalog=Novini;Integrated Security=true;"))
             {
-                string query = "SELECT * FROM NEWS";
+                string query = "SELECT ID,TITLE,CONTENT,TIMESTAMP,ISAPPROVED,URL FROM NEWS";
                 return connection.Query<NewsModel>(query);
             }
         }
@@ -24,7 +24,7 @@ namespace Novini.Repository
             //using (var sqlConnection = new SqlConnection("Server=(localdb)\v11.0;Integrated Security=true;"))
             using (IDbConnection connection = new SqlConnection(@"Server=DESKTOP-R4SAAK4\SQLEXPRESS;Initial Catalog=Novini;Integrated Security=true;"))
             {
-                string query = "SELECT * FROM NEWS WHERE ISAPPROVED = 'TRUE'";
+                string query = "SELECT TITLE,CONTENT,URL FROM NEWS WHERE ISAPPROVED = 'TRUE' ORDER BY ID DESC";
                 return connection.Query<NewsModel>(query);
             }
         }
@@ -34,8 +34,8 @@ namespace Novini.Repository
             //using (var sqlConnection = new SqlConnection("Server=(localdb)\v11.0;Integrated Security=true;"))
             using (IDbConnection connection = new SqlConnection(@"Server=DESKTOP-R4SAAK4\SQLEXPRESS;Initial Catalog=Novini;Integrated Security=true;"))
             {
-                string query = "INSERT INTO NEWS(Title,Content,IsApproved) values(@Title, @Content, @IsApproved)";
-                connection.Execute(query, new { model.Title, model.Content, model.IsApproved });
+                string query = "INSERT INTO NEWS(TITLE,CONTENT,ISAPPROVED,URL) VALUES(@Title, @Content, @IsApproved, @Url)";
+                connection.Execute(query, new { model.Title, model.Content, model.IsApproved, model.Url });
             }
         }
 
@@ -44,8 +44,8 @@ namespace Novini.Repository
             //using (var sqlConnection = new SqlConnection("Server=(localdb)\v11.0;Integrated Security=true;"))
             using (IDbConnection connection = new SqlConnection(@"Server=DESKTOP-R4SAAK4\SQLEXPRESS;Initial Catalog=Novini;Integrated Security=true;"))
             {
-                string query = "UPDATE NEWS SET TITLE = @Title, CONTENT = @Content, ISAPPROVED = @IsApproved) WHERE ID = @Id";
-                connection.Execute(query, new { model.Title, model.Content, model.IsApproved, model.Id });
+                string query = "UPDATE NEWS SET TITLE = @Title, CONTENT = @Content, ISAPPROVED = @IsApproved, URL = @Url WHERE ID = @Id";
+                connection.Execute(query, new { model.Title, model.Content, model.IsApproved, model.Url, model.Id });
             }
         }
 

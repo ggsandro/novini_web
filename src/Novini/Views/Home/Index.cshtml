@@ -1,17 +1,23 @@
-﻿@{
+﻿@using Novini.Models
+@model List<NewsModel>
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="col-md-4">
-    <div class="card">
-        <div class="card-header">
-            Title
-        </div>
-        <div class="card-block">
-            <p class="card-text">Some more card content csdfsdf sdf sdfsdfs sdfsdfs sdfsdfsdfsd </p>
+@foreach (var item in Model)
+{
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                @item.Title
+            </div>
+            <div class="card-block">
+                <p class="card-text">@item.Content</p>
+            </div>
         </div>
     </div>
-</div>
+}
 
 <div class="col-md-4">
     <div class="card">
