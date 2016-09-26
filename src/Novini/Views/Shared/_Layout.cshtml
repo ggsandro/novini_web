@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - NOVINI.UA</title>
+
+    <link rel="stylesheet" href="~/lib/bootstrap/scss/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+
+    <nav class="navbar navbar-light navbar-fixed-top bg-faded">
+        <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">
+            &#9776;
+        </button>
+        <div class="collapse container navbar-toggleable-xs" id="exCollapsingNavbar2">
+            <a class="navbar-brand" href="#">NOVINI.UA</a>
+            <ul class="nav navbar-nav pull-md-right">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Features</a>
+                </li>
+            </ul>
+            <a class="btn btn-success" href="#">Додати новину</a>
+        </div>
+    </nav>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; 2016 - Novini</p>
+        </footer>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>
