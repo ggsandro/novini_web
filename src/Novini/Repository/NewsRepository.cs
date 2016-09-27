@@ -12,27 +12,28 @@ namespace Novini.Repository
         public IEnumerable<NewsModel> TakeNews()
         {
             //using (var sqlConnection = new SqlConnection("Server=(localdb)\v11.0;Integrated Security=true;"))
-            using (IDbConnection connection = new SqlConnection(@"Server=DESKTOP-R4SAAK4\SQLEXPRESS;Initial Catalog=Novini;Integrated Security=true;"))
+            using (IDbConnection connection = new SqlConnection(AppSettings.AppSettings.DatabaseConnection))
             {
-                string query = "SELECT ID,TITLE,CONTENT,TIMESTAMP,ISAPPROVED,URL FROM NEWS";
+                string query = "SELECT ID,TITLE,CONTENT,TIMESTAMP,ISAPPROVED,URL FROM NEWS ORDER BY ID DESC";
                 return connection.Query<NewsModel>(query);
             }
         }
 
-        public IEnumerable<NewsModel> TakeApprovedNews()
+        public IEnumerable<NewsModel> TakeApprovedNews(int skip, int take)
         {
             //using (var sqlConnection = new SqlConnection("Server=(localdb)\v11.0;Integrated Security=true;"))
-            using (IDbConnection connection = new SqlConnection(@"Server=DESKTOP-R4SAAK4\SQLEXPRESS;Initial Catalog=Novini;Integrated Security=true;"))
+            using (IDbConnection connection = new SqlConnection(AppSettings.AppSettings.DatabaseConnection))
             {
-                string query = "SELECT TITLE,CONTENT,URL FROM NEWS WHERE ISAPPROVED = 'TRUE' ORDER BY ID DESC";
-                return connection.Query<NewsModel>(query);
+                string query = "SELECT TOP @take * FROM (SELECT TOP @allElements TITLE,CONTENT,URL FROM NEWS WHERE ISAPPROVED = 'TRUE' ORDER BY ID) ORDER BY ID DESC";
+                var allElements = skip + take;
+                return connection.Query<NewsModel>(query, new { allElements, take });
             }
         }
 
         public void AddNewsItem(NewsModel model)
         {
             //using (var sqlConnection = new SqlConnection("Server=(localdb)\v11.0;Integrated Security=true;"))
-            using (IDbConnection connection = new SqlConnection(@"Server=DESKTOP-R4SAAK4\SQLEXPRESS;Initial Catalog=Novini;Integrated Security=true;"))
+            using (IDbConnection connection = new SqlConnection(AppSettings.AppSettings.DatabaseConnection))
             {
                 string query = "INSERT INTO NEWS(TITLE,CONTENT,ISAPPROVED,URL) VALUES(@Title, @Content, @IsApproved, @Url)";
                 connection.Execute(query, new { model.Title, model.Content, model.IsApproved, model.Url });
@@ -42,7 +43,7 @@ namespace Novini.Repository
         public void UpdateNewsItem(NewsModel model)
         {
             //using (var sqlConnection = new SqlConnection("Server=(localdb)\v11.0;Integrated Security=true;"))
-            using (IDbConnection connection = new SqlConnection(@"Server=DESKTOP-R4SAAK4\SQLEXPRESS;Initial Catalog=Novini;Integrated Security=true;"))
+            using (IDbConnection connection = new SqlConnection(AppSettings.AppSettings.DatabaseConnection))
             {
                 string query = "UPDATE NEWS SET TITLE = @Title, CONTENT = @Content, ISAPPROVED = @IsApproved, URL = @Url WHERE ID = @Id";
                 connection.Execute(query, new { model.Title, model.Content, model.IsApproved, model.Url, model.Id });
@@ -52,7 +53,7 @@ namespace Novini.Repository
         public NewsModel GetNewsItem(int id)
         {
             //using (var sqlConnection = new SqlConnection("Server=(localdb)\v11.0;Integrated Security=true;"))
-            using (IDbConnection connection = new SqlConnection(@"Server=DESKTOP-R4SAAK4\SQLEXPRESS;Initial Catalog=Novini;Integrated Security=true;"))
+            using (IDbConnection connection = new SqlConnection(AppSettings.AppSettings.DatabaseConnection))
             {
                 string query = "Select * NEWS where Id = @id";
                 return connection.Query<NewsModel>(query, new { id}).SingleOrDefault();

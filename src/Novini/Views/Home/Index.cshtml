@@ -1,4 +1,5 @@
 ﻿@using Novini.Models
+@using Novini.Extensions
 @model List<NewsModel>
 
 @{
@@ -10,9 +11,10 @@
     <div class="col-md-4">
         <div class="card">
             <div class="card-header">
-                @item.Title
+                <a href="@item.Url" class="news-title" target="_blank">@item.Title</a>
             </div>
             <div class="card-block">
+                <label class="text-muted">@item.Url.GetDomain()</label>
                 <p class="card-text">@item.Content</p>
             </div>
         </div>
@@ -22,9 +24,10 @@
 <div class="col-md-4">
     <div class="card">
         <div class="card-header">
-            Title
+            <a href="http://ua.korrespondent.net/lifestyle/3750408-pisnia-pro-ruchku-i-yabluko-nabrala-47-mln-perehliadiv" class="news-title" target="_blank">Title</a>
         </div>
         <div class="card-block">
+            <label class="text-muted">ua.korrespondent.net</label>
             <p class="card-text">Some more card content csdfsdf sdf sdfsdfs sdfsdfs sdfsdfsdfsd </p>
         </div>
     </div>
@@ -33,9 +36,10 @@
 <div class="col-md-4">
     <div class="card">
         <div class="card-header">
-            Title
+            <a href="http://ua.korrespondent.net/lifestyle/3750408-pisnia-pro-ruchku-i-yabluko-nabrala-47-mln-perehliadiv" class="news-title" target="_blank">Title</a>
         </div>
         <div class="card-block">
+            <label class="text-muted">ua.korrespondent.net</label>
             <p class="card-text">Some more card content csdfsdf sdf sdfsdfs sdfsdfs sdfsdfsdfsd </p>
         </div>
     </div>
@@ -44,9 +48,10 @@
 <div class="col-md-4">
     <div class="card">
         <div class="card-header">
-            Title
+            <a href="http://ua.korrespondent.net/lifestyle/3750408-pisnia-pro-ruchku-i-yabluko-nabrala-47-mln-perehliadiv" class="news-title" target="_blank">Title</a>
         </div>
         <div class="card-block">
+            <label class="text-muted">ua.korrespondent.net</label>
             <p class="card-text">Some more card content csdfsdf sdf sdfsdfs sdfsdfs sdfsdfsdfsd </p>
         </div>
     </div>

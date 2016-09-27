@@ -10,7 +10,7 @@ namespace Novini.Controllers
         public IActionResult Index()
         {
             var repository = new NewsRepository();
-            var model = repository.TakeApprovedNews().ToList();
+            var model = repository.TakeApprovedNews(0, AppSettings.AppSettings.NewsOnPage).ToList();
             return View(model);
         }
 
@@ -18,7 +18,14 @@ namespace Novini.Controllers
         {
             var repository = new NewsRepository();
             repository.AddNewsItem(newsModel);
-            return "ok";
+            return Json(new { Status = "ok" });
+        }
+
+        public string MoreNews(int currentPageSize)
+        {
+            var repository = new NewsRepository();
+            var model = repository.TakeApprovedNews(currentPageSize, AppSettings.AppSettings.NewsOnPage);
+            return PartialView(model).ToString();
         }
     }
 }

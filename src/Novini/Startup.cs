@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -35,7 +31,8 @@ namespace Novini
         {
             // Add framework services.
             services.AddApplicationInsightsTelemetry(Configuration);
-
+            AppSettings.AppSettings.NewsOnPage = Configuration.GetValue<int>("NewsOnPage");
+            AppSettings.AppSettings.DatabaseConnection = Configuration.GetValue<string>("DatabaseConnection");
             services.AddMvc();
         }
 

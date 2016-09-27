@@ -203,5 +203,6 @@
 "C:\Projects\novini_web\src\Novini\Startup.cs"
 "C:\Projects\novini_web\src\Novini\Controllers\AdminController.cs"
 "C:\Projects\novini_web\src\Novini\Controllers\HomeController.cs"
+"C:\Projects\novini_web\src\Novini\Extensions\StringExtensions.cs"
 "C:\Projects\novini_web\src\Novini\Models\NewsModel.cs"
 "C:\Projects\novini_web\src\Novini\Repository\NewsRepository.cs"
