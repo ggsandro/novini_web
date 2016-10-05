@@ -205,8 +205,10 @@
 --resource:"C:\Projects\novini_web\src\Novini\obj\Debug\netcoreapp1.0\Novinidotnet-compile.deps.json",Novini.deps.json
 C:\Projects\novini_web\src\Novini\Program.cs
 C:\Projects\novini_web\src\Novini\Startup.cs
+C:\Projects\novini_web\src\Novini\AppSettings\AppSettings.cs
 C:\Projects\novini_web\src\Novini\Controllers\AdminController.cs
 C:\Projects\novini_web\src\Novini\Controllers\HomeController.cs
 C:\Projects\novini_web\src\Novini\Extensions\StringExtensions.cs
+C:\Projects\novini_web\src\Novini\Extensions\ViewToHtmlConverter.cs
 C:\Projects\novini_web\src\Novini\Models\NewsModel.cs
 C:\Projects\novini_web\src\Novini\Repository\NewsRepository.cs

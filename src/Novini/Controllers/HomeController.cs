@@ -2,6 +2,8 @@
 using Novini.Models;
 using Novini.Repository;
 using System.Linq;
+using System.IO;
+using Newtonsoft.Json;
 
 namespace Novini.Controllers
 {
@@ -14,18 +16,18 @@ namespace Novini.Controllers
             return View(model);
         }
 
-        public string AddNewsItem(NewsModel newsModel)
+        public IActionResult AddNewsItem(NewsModel newsModel)
         {
             var repository = new NewsRepository();
             repository.AddNewsItem(newsModel);
-            return Json(new { Status = "ok" });
+            return Ok();
         }
 
-        public string MoreNews(int currentPageSize)
+        public string MoreNews(int currentElements)
         {
             var repository = new NewsRepository();
-            var model = repository.TakeApprovedNews(currentPageSize, AppSettings.AppSettings.NewsOnPage);
-            return PartialView(model).ToString();
+            var model = repository.TakeApprovedNews(currentElements, AppSettings.AppSettings.NewsOnPage);
+            return JsonConvert.SerializeObject(model);
         }
     }
 }

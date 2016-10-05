@@ -6,20 +6,7 @@
     ViewData["Title"] = "Home Page";
 }
 
-@foreach (var item in Model)
-{
-    <div class="col-md-4">
-        <div class="card">
-            <div class="card-header">
-                <a href="@item.Url" class="news-title" target="_blank">@item.Title</a>
-            </div>
-            <div class="card-block">
-                <label class="text-muted">@item.Url.GetDomain()</label>
-                <p class="card-text">@item.Content</p>
-            </div>
-        </div>
-    </div>
-}
+@{Html.RenderPartial("MoreNews", Model);}
 
 <div class="col-md-4">
     <div class="card">
@@ -55,4 +42,8 @@
             <p class="card-text">Some more card content csdfsdf sdf sdfsdfs sdfsdfs sdfsdfsdfsd </p>
         </div>
     </div>
+</div>
+
+<div class="col-xs-12">
+    <button class="btn btn-info col-xs-12" id="moreNewsButton">Попередні новини</button>
 </div>

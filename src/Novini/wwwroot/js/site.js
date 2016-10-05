@@ -3,6 +3,8 @@ var form = document.getElementById("addNewsItem");
 var okMessage = document.getElementById('okmessage');
 var errorMessage = document.getElementById('errormessage');
 var addNewsButton = document.getElementById('addNewsButton');
+var moreNewsButton = document.getElementById('moreNewsButton');
+var contentBody = document.getElementById('contentbody');
 
 function openModal() {
     overlay.classList.remove("hidden-xs-up");
@@ -110,5 +112,41 @@ window.addEventListener("load", function () {
         event.preventDefault();
         openModal();
     });
+
+    //More news
+    moreNewsButton.addEventListener("click", function (event) {
+        var request = new XMLHttpRequest();
+        request.open('GET', '/home/morenews', true);
+
+        request.onload = function () {
+            if (request.status >= 200 && request.status < 400) {
+                // Success!
+                contentBody.appendChild(request.responseText);
+            } else {
+                // We reached our target server, but it returned an error
+            }
+        };
+
+        request.onerror = function () {
+            alert("asdasd");
+            // There was a connection error of some sort
+        };
+
+        request.send();
+    });
 });
+
+function RenderTemplate(url, title, urlDomain, content) {
+    var newsTemplate = "<div class=\"col-md-4\">" +
+                        "<div class=\"card\">" +
+                            "<div class=\"card-header\">" +
+                                "<a href=\"" + url + "\" class=\"news-title\" target=\"_blank\">" + title + "</a>" +
+                            "</div>" +
+                            "<div class=\"card-block\">" +
+                                "<label class=\"text-muted\">" + urlDomain + "</label>" +
+                                "<p class=\"card-text\">" + content + "</p>" +
+                            "</div>" +
+                        "</div>" +
+                    "</div>";
+}
 

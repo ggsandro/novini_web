@@ -1,12 +1,25 @@
-﻿<!DOCTYPE html>
-<html>
+﻿<!doctype html>
+<html amp lang="en">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="canonical" href="http://novini.ua/" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
     <title>@ViewData["Title"] - NOVINI.UA</title>
 
     <link rel="stylesheet" href="~/lib/bootstrap/scss/bootstrap.min.css" />
     <link rel="stylesheet" href="~/scss/site.css" />
+
+    <noscript>
+    <style amp-boilerplate>
+        body {
+            -webkit-animation: none;
+            -moz-animation: none;
+            -ms-animation: none;
+            animation: none;
+        }
+    </style>
+    </noscript>
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
 </head>
 <body>
 
@@ -30,10 +43,10 @@
 
     <br />
 
-    <div class="container body-content">
+    <div class="container body-content" id="contentbody">
         @RenderBody()
     </div>
-    
+
     @*Modal window*@
     <div class="overlay hidden-xs-up" id="overlay">
         <div class="modal-content">
@@ -51,7 +64,7 @@
                     <label for="formGroupExampleInput2">Адреса посилання(URL)</label>
                     <input type="text" class="form-control" name="url" placeholder="http://">
                 </div>
-                <input type="submit" class="btn btn-primary offset-md-10 offset-lg-10" value="Додати"/>
+                <input type="submit" class="btn btn-primary offset-md-10 offset-lg-10" value="Додати" />
             </form>
         </div>
     </div>
@@ -59,7 +72,7 @@
     @*ok message*@
     <div id="okmessage">
         <div class="container">
-            <div class="alert alert-success offset-md-3 offset-xs-0 offset-sm-0 col-md-6 col-xs-12 col-sm-12"  role="alert">
+            <div class="alert alert-success offset-md-3 offset-xs-0 offset-sm-0 col-md-6 col-xs-12 col-sm-12" role="alert">
                 <strong>Дякуємо!</strong> Новина з'явиться на сайті після перевірки модератором.
             </div>
         </div>

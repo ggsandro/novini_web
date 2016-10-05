@@ -12,7 +12,7 @@
 /*OK MESSAGE*/
 #okmessage, #errormessage {
   position: absolute;
-  top: -80px;
+  top: -100px;
   width: 100%;
   text-align: center;
   -webkit-transition: all ease-out 2s;
