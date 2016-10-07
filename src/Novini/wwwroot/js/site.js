@@ -5,6 +5,8 @@ var errorMessage = document.getElementById('errormessage');
 var addNewsButton = document.getElementById('addNewsButton');
 var moreNewsButton = document.getElementById('moreNewsButton');
 var contentBody = document.getElementById('contentbody');
+var elementsOnPage = document.getElementById('elementsOnPage');
+var spiner = document.getElementById('spiner');
 
 function openModal() {
     overlay.classList.remove("hidden-xs-up");
@@ -28,6 +30,14 @@ function showErrorMessage() {
 
 function hideErrorMessage() {
     errorMessage.classList.remove("show-message");
+}
+
+function showSpiner() {
+    spiner.classList.remove("hidden-xs-up");
+}
+
+function hideSpiner() {
+    spiner.classList.add("hidden-xs-up");
 }
 
 //catch end of transition
@@ -82,7 +92,7 @@ function newPost() {
         showOkMessage();
         var transitionEvent = whichTransitionEvent();
         transitionEvent && okMessage.addEventListener(transitionEvent, function () {
-            setTimeout(hideOkMessage, 4000);
+            setTimeout(hideOkMessage, 1000);
         });
     });
 
@@ -91,8 +101,8 @@ function newPost() {
         closeModal();
         showErrorMessage();
         var transitionEvent = whichTransitionEvent();
-        transitionEvent && okMessage.addEventListener(transitionEvent, function () {
-            setTimeout(hideOkMessage, 4000);
+        transitionEvent && errorMessage.addEventListener(transitionEvent, function () {
+            setTimeout(hideErrorMessage, 1000);
         });
     });
 
@@ -116,37 +126,62 @@ window.addEventListener("load", function () {
     //More news
     moreNewsButton.addEventListener("click", function (event) {
         var request = new XMLHttpRequest();
-        request.open('GET', '/home/morenews', true);
+        request.open('GET', '/home/morenews?currentElements=' + elementsOnPage.value, true);
 
         request.onload = function () {
             if (request.status >= 200 && request.status < 400) {
                 // Success!
-                contentBody.appendChild(request.responseText);
+                var dataArray = JSON.parse(request.responseText);
+                var htmlToAdd = "";
+                for (var i = 0; i < dataArray.length ; i++) {
+                    var htmlElem = RenderTemplate(dataArray[i].Url, dataArray[i].Title, extractDomain(dataArray[i].Url), dataArray[i].Content, dataArray[i].TimeStampString);
+                    htmlToAdd += htmlElem;
+                }
+                contentBody.insertAdjacentHTML('beforeend', htmlToAdd);
+                elementsOnPage.value += dataArray.length;
+                hideSpiner();
             } else {
                 // We reached our target server, but it returned an error
+                hideSpiner();
             }
         };
 
         request.onerror = function () {
             alert("asdasd");
+            hideSpiner();
             // There was a connection error of some sort
         };
 
         request.send();
+        showSpiner();
     });
 });
 
-function RenderTemplate(url, title, urlDomain, content) {
-    var newsTemplate = "<div class=\"col-md-4\">" +
+function RenderTemplate(url, title, urlDomain, content, timeStampString) {
+    return "<div class=\"col-xs-12 col-md-custom-4\">" +
                         "<div class=\"card\">" +
                             "<div class=\"card-header\">" +
                                 "<a href=\"" + url + "\" class=\"news-title\" target=\"_blank\">" + title + "</a>" +
                             "</div>" +
                             "<div class=\"card-block\">" +
                                 "<label class=\"text-muted\">" + urlDomain + "</label>" +
+                                "<label class=\"text-muted pull-xs-right\">" + timeStampString + "</label>" +
                                 "<p class=\"card-text\">" + content + "</p>" +
                             "</div>" +
                         "</div>" +
                     "</div>";
 }
 
+function extractDomain(url) {
+    var domain;
+    //find & remove protocol (http, ftp, etc.) and get domain
+    if (url.indexOf("://") > -1) {
+        domain = url.split('/')[2];
+    }
+    else {
+        domain = url.split('/')[0];
+    }
+    //find & remove port number
+    domain = domain.split(':')[0];
+    return domain;
+}

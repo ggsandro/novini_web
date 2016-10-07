@@ -9,6 +9,20 @@
   font-weight: bold;
   text-decoration: none; }
 
+#spiner {
+  width: 24px;
+  margin-right: 10px; }
+
+.col-md-custom-4 {
+  display: inline-block;
+  width: 33%;
+  vertical-align: top;
+  float: none; }
+
+@media (max-width: 768px) {
+  .col-md-custom-4 {
+    width: 100%; } }
+
 /*OK MESSAGE*/
 #okmessage, #errormessage {
   position: absolute;

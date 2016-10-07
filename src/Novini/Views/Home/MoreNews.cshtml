@@ -4,13 +4,14 @@
 
 @foreach (var item in Model)
 {
-    <div class="col-md-4">
+    <div class="col-xs-12 col-md-custom-4">
         <div class="card">
             <div class="card-header">
                 <a href="@item.Url" class="news-title" target="_blank">@item.Title</a>
             </div>
             <div class="card-block">
                 <label class="text-muted">@item.Url.GetDomain()</label>
+                <label class="text-muted pull-xs-right">@item.TimeStampString</label>
                 <p class="card-text">@item.Content</p>
             </div>
         </div>

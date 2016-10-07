@@ -64,9 +64,7 @@ namespace Novini
                     name: "default",
                     template: "{controller=Home}/{action=Index}");
 
-                routes.MapRoute(
-                    name: "add_news",
-                    template: "{controller=Home}/{action=AddNewsItem}");
+
             });
         }
     }

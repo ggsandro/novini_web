@@ -6,44 +6,13 @@
     ViewData["Title"] = "Home Page";
 }
 
-@{Html.RenderPartial("MoreNews", Model);}
+<div id="contentbody">
+    @{Html.RenderPartial("MoreNews", Model);}
 
-<div class="col-md-4">
-    <div class="card">
-        <div class="card-header">
-            <a href="http://ua.korrespondent.net/lifestyle/3750408-pisnia-pro-ruchku-i-yabluko-nabrala-47-mln-perehliadiv" class="news-title" target="_blank">Title</a>
-        </div>
-        <div class="card-block">
-            <label class="text-muted">ua.korrespondent.net</label>
-            <p class="card-text">Some more card content csdfsdf sdf sdfsdfs sdfsdfs sdfsdfsdfsd </p>
-        </div>
-    </div>
-</div>
-
-<div class="col-md-4">
-    <div class="card">
-        <div class="card-header">
-            <a href="http://ua.korrespondent.net/lifestyle/3750408-pisnia-pro-ruchku-i-yabluko-nabrala-47-mln-perehliadiv" class="news-title" target="_blank">Title</a>
-        </div>
-        <div class="card-block">
-            <label class="text-muted">ua.korrespondent.net</label>
-            <p class="card-text">Some more card content csdfsdf sdf sdfsdfs sdfsdfs sdfsdfsdfsd </p>
-        </div>
-    </div>
-</div>
-
-<div class="col-md-4">
-    <div class="card">
-        <div class="card-header">
-            <a href="http://ua.korrespondent.net/lifestyle/3750408-pisnia-pro-ruchku-i-yabluko-nabrala-47-mln-perehliadiv" class="news-title" target="_blank">Title</a>
-        </div>
-        <div class="card-block">
-            <label class="text-muted">ua.korrespondent.net</label>
-            <p class="card-text">Some more card content csdfsdf sdf sdfsdfs sdfsdfs sdfsdfsdfsd </p>
-        </div>
-    </div>
+    <input type="hidden" id="elementsOnPage" value="9" />
 </div>
 
 <div class="col-xs-12">
-    <button class="btn btn-info col-xs-12" id="moreNewsButton">Попередні новини</button>
+    <button class="btn btn-info col-xs-12" id="moreNewsButton"><img src="/spin.gif" id="spiner" class="hidden-xs-up"/>Попередні новини</button>
+    <br /><br />
 </div>

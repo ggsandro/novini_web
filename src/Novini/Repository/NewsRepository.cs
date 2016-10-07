@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using Novini.Models;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -20,13 +21,12 @@ namespace Novini.Repository
             }
         }
 
-        public IEnumerable<NewsModel> TakeApprovedNews(int currentElements, int take)
+        public IEnumerable<NewsModel> TakeApprovedNews(int skip, int take)
         {
             //using (var sqlConnection = new SqlConnection("Server=(localdb)\v11.0;Integrated Security=true;"))
             using (IDbConnection connection = new SqlConnection(AppSettings.AppSettings.DatabaseConnection))
             {
-                string query = "SELECT TOP (@take) ID, TITLE,CONTENT,URL FROM (SELECT TOP (@skip) ID, TITLE,CONTENT,URL FROM NEWS WHERE ISAPPROVED = 'TRUE' ORDER BY ID) as b ORDER BY b.ID DESC";
-                int skip = currentElements + take;
+                string query = "SELECT TITLE,CONTENT,URL, TIMESTAMP FROM NEWS WHERE ISAPPROVED = 'TRUE' ORDER BY ID DESC OFFSET(@skip) ROWS FETCH NEXT(@take) ROWS ONLY";
                 return connection.Query<NewsModel>(query, new { skip, take });
             }
         }
@@ -57,7 +57,7 @@ namespace Novini.Repository
             using (IDbConnection connection = new SqlConnection(AppSettings.AppSettings.DatabaseConnection))
             {
                 string query = "Select * NEWS where Id = @id";
-                return connection.Query<NewsModel>(query, new { id}).SingleOrDefault();
+                return connection.Query<NewsModel>(query, new { id }).SingleOrDefault();
             }
         }
     }
