@@ -1,4 +1,6 @@
-﻿var overlay = document.getElementById('overlay');
+﻿'use strict';
+
+var overlay = document.getElementById('overlay');
 var contacts = document.getElementById('contacts');
 var contactsButton = document.getElementById('contactsbutton');
 var form = document.getElementById("addNewsItem");
@@ -63,7 +65,7 @@ function whichTransitionEvent() {
         'OTransition': 'oTransitionEnd',
         'MozTransition': 'transitionend',
         'WebkitTransition': 'webkitTransitionEnd'
-    }
+    };
 
     for (t in transitions) {
         if (el.style[t] !== undefined) {
@@ -74,7 +76,10 @@ function whichTransitionEvent() {
 
 function serializeForm() {
     var elems = form.elements;
-    var serialized = [], i, len = elems.length, str = '';
+    var serialized = [],
+        i,
+        len = elems.length,
+        str = '';
     for (i = 0; i < len; i += 1) {
         var element = elems[i];
         var type = element.type;
@@ -152,7 +157,7 @@ window.addEventListener("load", function () {
                 // Success!
                 var dataArray = JSON.parse(request.responseText);
                 var htmlToAdd = "";
-                for (var i = 0; i < dataArray.length ; i++) {
+                for (var i = 0; i < dataArray.length; i++) {
                     var htmlElem = RenderTemplate(dataArray[i].Url, dataArray[i].Title, extractDomain(dataArray[i].Url), dataArray[i].Content, dataArray[i].TimeStampString);
                     htmlToAdd += htmlElem;
                 }
@@ -177,18 +182,7 @@ window.addEventListener("load", function () {
 });
 
 function RenderTemplate(url, title, urlDomain, content, timeStampString) {
-    return "<div class=\"col-xs-12 col-md-custom-4\">" +
-                        "<div class=\"card\">" +
-                            "<div class=\"card-header\">" +
-                                "<a href=\"" + url + "\" class=\"news-title\" target=\"_blank\">" + title + "</a>" +
-                            "</div>" +
-                            "<div class=\"card-block\">" +
-                                "<label class=\"text-muted\">" + urlDomain + "</label>" +
-                                "<label class=\"text-muted pull-xs-right\">" + timeStampString + "</label>" +
-                                "<p class=\"card-text\">" + content + "</p>" +
-                            "</div>" +
-                        "</div>" +
-                    "</div>";
+    return "<div class=\"col-xs-12 col-md-custom-4\">" + "<div class=\"card\">" + "<div class=\"card-header\">" + "<a href=\"" + url + "\" class=\"news-title\" target=\"_blank\">" + title + "</a>" + "</div>" + "<div class=\"card-block\">" + "<label class=\"text-muted\">" + urlDomain + "</label>" + "<label class=\"text-muted pull-xs-right\">" + timeStampString + "</label>" + "<p class=\"card-text\">" + content + "</p>" + "</div>" + "</div>" + "</div>";
 }
 
 function extractDomain(url) {
@@ -196,11 +190,11 @@ function extractDomain(url) {
     //find & remove protocol (http, ftp, etc.) and get domain
     if (url.indexOf("://") > -1) {
         domain = url.split('/')[2];
-    }
-    else {
+    } else {
         domain = url.split('/')[0];
     }
     //find & remove port number
     domain = domain.split(':')[0];
     return domain;
 }
+

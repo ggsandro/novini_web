@@ -1,25 +1,23 @@
 ﻿<!doctype html>
-<html amp lang="en">
+<html lang="uk">
 <head>
     <meta charset="utf-8" />
-    <link rel="canonical" href="http://novini.ua/" />
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
-    <title>@ViewData["Title"] - NOVINI.UA</title>
+    <title>NOVINI.UA</title>
+    <link rel="icon" href="~/favicon.ico">
+    <link rel="stylesheet" href="~/scss/site.css">
 
-    <link rel="stylesheet" href="~/lib/bootstrap/scss/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/scss/site.css" />
-
-    <noscript>
-    <style amp-boilerplate>
-        body {
-            -webkit-animation: none;
-            -moz-animation: none;
-            -ms-animation: none;
-            animation: none;
+    <script type="application/ld+json">
+        {
+        "@@context": "http://schema.org",
+        "@@type": "NewsArticle",
+        "headline": "Новини",
+        "datePublished": "@DateTime.Now.Date",
+        "image": [
+        "~/favicon.ico"
+        ]
         }
-    </style>
-    </noscript>
-    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    </script>
 </head>
 <body>
 
@@ -35,7 +33,7 @@
             </div>
             <ul class="nav navbar-nav pull-md-right">
                 <li class="nav-item active">
-                    <a class="nav-link col-md-12" href="#">Контакти <span class="sr-only">(current)</span></a>
+                    <a class="nav-link col-md-12" href="#" id="contactsbutton">Контакти</a>
                 </li>
             </ul>
         </div>
@@ -58,19 +56,35 @@
             <span class="button-close" onclick="closeModal();"></span>
             <form action="/Home/AddNewsItem" method="post" id="addNewsItem">
                 <div class="form-group">
-                    <label for="formGroupExampleInput">Заголовок</label>
-                    <input type="text" class="form-control" name="title" placeholder="Заголовок">
+                    <label for="add-news-header">Заголовок (максимум 65 символів)</label>
+                    <input type="text" class="form-control" id="add-news-header" name="title" placeholder="Заголовок" required maxlength="65">
                 </div>
                 <div class="form-group">
-                    <label for="formGroupExampleInput2">Текст</label>
-                    <input type="text" class="form-control" name="content" placeholder="Текст">
+                    <label for="add-news-content">Текст (максимум 115 символів)</label>
+                    <input type="text" class="form-control" id="add-news-content" name="content" placeholder="Текст" required maxlength="115">
                 </div>
                 <div class="form-group">
-                    <label for="formGroupExampleInput2">Адреса посилання(URL)</label>
-                    <input type="text" class="form-control" name="url" placeholder="http://">
+                    <label for="add-news-url">Адреса посилання(URL)</label>
+                    <input type="url" class="form-control" id="add-news-url" name="url" placeholder="http://" required maxlength="150">
                 </div>
-                <input type="submit" class="btn btn-primary offset-md-10 offset-lg-10" value="Додати" />
+                <div class="form-group">
+                    <label for="url">Адреса посилання(URLasda)</label>
+                    <input type="url" class="form-control" id="add-news-ssss" name="asdasd" placeholder="http://" required maxlength="150">
+                </div>
+                <input type="submit" class="btn btn-primary pull-xs-right" value="Додати" /><br /><br />
             </form>
+        </div>
+    </div>
+
+    @*Contact window*@
+    <div class="overlay hidden-xs-up" id="contacts">
+        <div class="modal-content">
+            <span class="button-close" onclick="closeContacts();"></span>
+            <div>
+                <h2>Контакти:</h2>
+                <p>З усіх питань пов'язаних з роботою сайту можна звертатися за адресою:</p>
+                <label>Email : dmitry90titov@gmail.com</label>
+            </div>
         </div>
     </div>
 
@@ -92,7 +106,6 @@
         </div>
     </div>
 
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @RenderSection("scripts", required: false)
+    <script async src="~/js/site.es5.min.js"></script>
 </body>
 </html>
