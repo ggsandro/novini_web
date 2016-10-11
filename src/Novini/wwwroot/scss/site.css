@@ -718,10 +718,12 @@ input[type="button"].btn-block {
   padding: 0px 5px; }
 
 .card-block {
-  min-height: 132px; }
+  min-height: 102px;
+  padding: 5px 10px; }
 
 .card-header {
-  min-height: 67px; }
+  min-height: 53px;
+  padding: 5px 10px; }
 
 .text-muted {
   opacity: 0.6;

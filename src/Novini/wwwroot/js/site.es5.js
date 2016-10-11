@@ -182,7 +182,7 @@ window.addEventListener("load", function () {
 });
 
 function RenderTemplate(url, title, urlDomain, content, timeStampString) {
-    return "<div class=\"col-xs-12 col-md-custom-4\">" + "<div class=\"card\">" + "<div class=\"card-header\">" + "<a href=\"" + url + "\" class=\"news-title\" target=\"_blank\">" + title + "</a>" + "</div>" + "<div class=\"card-block\">" + "<label class=\"text-muted\">" + urlDomain + "</label>" + "<label class=\"text-muted pull-xs-right\">" + timeStampString + "</label>" + "<p class=\"card-text\">" + content + "</p>" + "</div>" + "</div>" + "</div>";
+    return "<div class=\"col-xs-12 col-md-custom-4\">" + "<div class=\"card\">" + "<div class=\"card-header\">" + "<a href=\"" + url + "\" class=\"news-title\" target=\"_blank\">" + title + "</a>" + "</div>" + "<div class=\"card-block\">" + "<label class=\"text-muted\">" + urlDomain + "</label>" + "<label class=\"text-muted pull-xs-right\">" + timeStampString + "</label>" + "<p class=\"card-text\">" + content + "</p>" + "</div>" + "</div>" + "</div> ";
 }
 
 function extractDomain(url) {

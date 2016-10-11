@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using MySql.Data.MySqlClient;
 using Novini.Models;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,23 @@ namespace Novini.Repository
 {
     public class NewsRepository
     {
-        private IDbConnection connection = new SqlConnection(AppSettings.AppSettings.DatabaseConnection);
+
+        public NewsRepository()
+        {
+            var mySqlConnectionBuilder = new MySqlConnectionStringBuilder
+            {
+                Server = "localhost",
+                UserID = "novini",
+                Password = "GGSANDRO",
+                Database = "novini",
+                ConvertZeroDateTime = true,
+                UseAffectedRows = true,
+            };
+            connection = new MySqlConnection(mySqlConnectionBuilder.ConnectionString);
+            connection.Open();
+        }
+
+        private IDbConnection connection;// = new MySqlConnection(AppSettings.AppSettings.DatabaseConnection);
 
         //public IEnumerable<NewsModel> TakeNews()
         //{
@@ -21,7 +38,7 @@ namespace Novini.Repository
 
         public IEnumerable<NewsModel> TakeApprovedNews(int skip, int take)
         {
-            string query = "SELECT TITLE,CONTENT,URL, TIMESTAMP FROM NEWS WHERE ISAPPROVED = 'TRUE' ORDER BY ID DESC OFFSET(@skip) ROWS FETCH NEXT(@take) ROWS ONLY";
+            string query = "SELECT TITLE,CONTENT,URL,TIMESTAMP FROM NEWS WHERE ISAPPROVED = 1 ORDER BY ID DESC LIMIT @take OFFSET @skip";
             return connection.Query<NewsModel>(query, new { skip, take });
         }
 

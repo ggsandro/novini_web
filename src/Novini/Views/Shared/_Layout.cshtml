@@ -1,10 +1,11 @@
 ﻿<!doctype html>
-<html lang="uk">
+<html amp lang="uk">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
     <title>NOVINI.UA</title>
     <link rel="icon" href="~/favicon.ico">
+
     <link rel="stylesheet" href="~/scss/site.css">
 
     <script type="application/ld+json">
@@ -56,16 +57,16 @@
             <span class="button-close" onclick="closeModal();"></span>
             <form action="/Home/AddNewsItem" method="post" id="addNewsItem">
                 <div class="form-group">
-                    <label for="add-news-header">Заголовок (максимум 65 символів)</label>
-                    <input type="text" class="form-control" id="add-news-header" name="title" placeholder="Заголовок" required maxlength="65">
+                    <label for="add-news-header">Заголовок (максимум 80 символів)</label>
+                    <input type="text" class="form-control" id="add-news-header" name="title" placeholder="Заголовок" required maxlength="80">
                 </div>
                 <div class="form-group">
-                    <label for="add-news-content">Текст (максимум 115 символів)</label>
-                    <input type="text" class="form-control" id="add-news-content" name="content" placeholder="Текст" required maxlength="115">
+                    <label for="add-news-content">Текст (максимум 130 символів)</label>
+                    <input type="text" class="form-control" id="add-news-content" name="content" placeholder="Текст" required maxlength="130">
                 </div>
                 <div class="form-group">
                     <label for="add-news-url">Адреса посилання(URL)</label>
-                    <input type="text" class="form-control" id="add-news-url" name="url" title="Будь ласка, введіть правильний URL" pattern="(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@@:%_\+.~#?&//=]*)" placeholder="http://" required maxlength="150">
+                    <input type="text" class="form-control" id="add-news-url" name="url" title="Будь ласка, введіть правильний URL" pattern="(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@@:%_\+.~#?&//=]*)" placeholder="http://" required maxlength="200">
                 </div>
                 <input type="submit" class="btn btn-primary pull-xs-right" value="Додати" /><br /><br />
             </form>

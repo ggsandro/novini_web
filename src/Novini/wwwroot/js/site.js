@@ -188,7 +188,7 @@ function RenderTemplate(url, title, urlDomain, content, timeStampString) {
                                 "<p class=\"card-text\">" + content + "</p>" +
                             "</div>" +
                         "</div>" +
-                    "</div>";
+                    "</div> ";
 }
 
 function extractDomain(url) {

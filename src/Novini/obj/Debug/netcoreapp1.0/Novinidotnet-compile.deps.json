@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v1.0/",
-    "signature": "0020f2efd285fc5d31d408362465d4d9da1fdfc9"
+    "signature": "dcec6839e44fa2b87a1c572335cbdf29da8210da"
   },
   "compilationOptions": {
     "defines": [
@@ -34,7 +34,8 @@
           "Microsoft.AspNetCore.Server.Kestrel": "1.0.1",
           "Microsoft.NETCore.App": "1.0.1",
           "Dapper": "1.50.2",
-          "Newtonsoft.Json": "9.0.1"
+          "Newtonsoft.Json": "9.0.1",
+          "MySqlConnector": "0.2.0"
         },
         "compile": {
           "Novini.dll": {}
@@ -1242,6 +1243,25 @@
         },
         "compile": {
           "ref/netstandard1.3/Microsoft.Win32.Registry.dll": {}
+        }
+      },
+      "MySqlConnector/0.2.0": {
+        "dependencies": {
+          "System.Collections.Concurrent": "4.0.12",
+          "System.Data.Common": "4.1.0",
+          "System.Globalization": "4.0.11",
+          "System.IO": "4.1.0",
+          "System.Linq": "4.1.0",
+          "System.Net.NameResolution": "4.0.0",
+          "System.Net.Sockets": "4.1.0",
+          "System.Runtime": "4.1.0",
+          "System.Runtime.Extensions": "4.1.0",
+          "System.Security.Cryptography.Algorithms": "4.2.0",
+          "System.Threading": "4.0.11",
+          "System.Threading.Tasks.Extensions": "4.0.0"
+        },
+        "compile": {
+          "lib/netstandard1.3/MySqlConnector.dll": {}
         }
       },
       "NETStandard.Library/1.6.0": {
@@ -2813,7 +2833,8 @@
           "Microsoft.AspNetCore.Server.Kestrel": "1.0.1",
           "Microsoft.NETCore.App": "1.0.1",
           "Dapper": "1.50.2",
-          "Newtonsoft.Json": "9.0.1"
+          "Newtonsoft.Json": "9.0.1",
+          "MySqlConnector": "0.2.0"
         },
         "runtime": {
           "Novini.dll": {}
@@ -4018,6 +4039,25 @@
           "System.Runtime.Extensions": "4.1.0",
           "System.Runtime.Handles": "4.0.1",
           "System.Runtime.InteropServices": "4.1.0"
+        }
+      },
+      "MySqlConnector/0.2.0": {
+        "dependencies": {
+          "System.Collections.Concurrent": "4.0.12",
+          "System.Data.Common": "4.1.0",
+          "System.Globalization": "4.0.11",
+          "System.IO": "4.1.0",
+          "System.Linq": "4.1.0",
+          "System.Net.NameResolution": "4.0.0",
+          "System.Net.Sockets": "4.1.0",
+          "System.Runtime": "4.1.0",
+          "System.Runtime.Extensions": "4.1.0",
+          "System.Security.Cryptography.Algorithms": "4.2.0",
+          "System.Threading": "4.0.11",
+          "System.Threading.Tasks.Extensions": "4.0.0"
+        },
+        "runtime": {
+          "lib/netstandard1.3/MySqlConnector.dll": {}
         }
       },
       "NETStandard.Library/1.6.0": {
@@ -5962,6 +6002,11 @@
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-q+eLtROUAQ3OxYA5mpQrgyFgzLQxIyrfT2eLpYX5IEPlHmIio2nh4F5bgOaQoGOV865kFKZZso9Oq9RlazvXtg=="
+    },
+    "MySqlConnector/0.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-QrZrOSvlGostH6Ya5AH8nP+fbibiGI5Aftub1XtMqdN2QDzAB19FIwpCUkBGt04eD+JeX7afbbxBRPiMlNMxbg=="
     },
     "NETStandard.Library/1.6.0": {
       "type": "package",
