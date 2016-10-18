@@ -12,7 +12,6 @@ namespace Novini.Repository
 {
     public class NewsRepository
     {
-
         public NewsRepository()
         {
             var mySqlConnectionBuilder = new MySqlConnectionStringBuilder
@@ -28,13 +27,7 @@ namespace Novini.Repository
             connection.Open();
         }
 
-        private IDbConnection connection;// = new MySqlConnection(AppSettings.AppSettings.DatabaseConnection);
-
-        //public IEnumerable<NewsModel> TakeNews()
-        //{
-        //    string query = "SELECT ID,TITLE,CONTENT,TIMESTAMP,ISAPPROVED,URL FROM NEWS ORDER BY ID DESC";
-        //    return connection.Query<NewsModel>(query);
-        //}
+        private IDbConnection connection;
 
         public IEnumerable<NewsModel> TakeApprovedNews(int skip, int take)
         {
