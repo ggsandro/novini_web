@@ -4,6 +4,8 @@ using Novini.Repository;
 using System.Linq;
 using System.IO;
 using Newtonsoft.Json;
+using Microsoft.AspNetCore.Authorization;
+using System.Collections.Generic;
 
 namespace Novini.Controllers
 {
@@ -12,8 +14,19 @@ namespace Novini.Controllers
         public IActionResult Index()
         {
             var repository = new NewsRepository();
-            var model = repository.TakeApprovedNews(0, AppSettings.AppSettings.NewsOnPage).ToList();
+            var model = HttpContext.User.Identity.IsAuthenticated ?
+                repository.TakeNews(0, AppSettings.AppSettings.NewsOnPage).ToList() :
+                repository.TakeApprovedNews(0, AppSettings.AppSettings.NewsOnPage).ToList();
             return View(model);
+        }
+
+        [HttpPost]
+        [Authorize]
+        public IActionResult UpdateNews(List<NewsModel> newsList)
+        {
+            var repository = new NewsRepository();
+            repository.UpdateNews(newsList);
+            return RedirectToAction("Index");
         }
 
         public IActionResult AddNewsItem(NewsModel newsModel)
@@ -26,7 +39,9 @@ namespace Novini.Controllers
         public string MoreNews(int currentElements)
         {
             var repository = new NewsRepository();
-            var model = repository.TakeApprovedNews(currentElements, AppSettings.AppSettings.NewsOnPage);
+            var model = HttpContext.User.Identity.IsAuthenticated ?
+                repository.TakeNews(currentElements, AppSettings.AppSettings.NewsOnPage).ToList() :
+                repository.TakeApprovedNews(currentElements, AppSettings.AppSettings.NewsOnPage).ToList();
             return JsonConvert.SerializeObject(model);
         }
     }

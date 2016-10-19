@@ -9,6 +9,7 @@ using System.Data.SqlClient;
 using System.Dynamic;
 using System.Linq;
 using System.Security.Cryptography;
+using System.Text;
 
 namespace Novini.Repository
 {
@@ -31,18 +32,6 @@ namespace Novini.Repository
         }
 
         private IDbConnection connection;// = new MySqlConnection(AppSettings.AppSettings.DatabaseConnection);
-
-        //public IEnumerable<NewsModel> TakeNews()
-        //{
-        //    string query = "SELECT ID,TITLE,CONTENT,TIMESTAMP,ISAPPROVED,URL FROM NEWS ORDER BY ID DESC";
-        //    return connection.Query<NewsModel>(query);
-        //}
-
-        public IEnumerable<NewsModel> TakeApprovedNews(int skip, int take)
-        {
-            string query = "SELECT TITLE,CONTENT,URL,TIMESTAMP FROM NEWS WHERE ISAPPROVED = 1 ORDER BY ID DESC LIMIT @take OFFSET @skip";
-            return connection.Query<NewsModel>(query, new { skip, take });
-        }
 
         public bool CheckLoginPassword(string login, string password)
         {

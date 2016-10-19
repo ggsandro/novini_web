@@ -35,17 +35,28 @@ namespace Novini.Repository
             return connection.Query<NewsModel>(query, new { skip, take });
         }
 
-        public void AddNewsItem(NewsModel model)
+        public bool AddNewsItem(NewsModel model)
         {
             string query = "INSERT INTO NEWS(TITLE,CONTENT,ISAPPROVED,URL) VALUES(@Title, @Content, @IsApproved, @Url)";
             connection.Execute(query, new { model.Title, model.Content, model.IsApproved, model.Url });
+            return true;
         }
 
-        //public void UpdateNewsItem(NewsModel model)
-        //{
-        //    string query = "UPDATE NEWS SET TITLE = @Title, CONTENT = @Content, ISAPPROVED = @IsApproved, URL = @Url WHERE ID = @Id";
-        //    connection.Execute(query, new { model.Title, model.Content, model.IsApproved, model.Url, model.Id });
-        //}
+        public IEnumerable<NewsModel> TakeNews(int skip, int take)
+        {
+            string query = "SELECT ID,TITLE,CONTENT,TIMESTAMP,ISAPPROVED,URL FROM NEWS ORDER BY ID DESC LIMIT @take OFFSET @skip";
+            return connection.Query<NewsModel>(query, new { skip, take });
+        }
+
+        public bool UpdateNews(IEnumerable<NewsModel> newsList)
+        {
+            foreach(var news in newsList)
+            {
+                string query = "UPDATE NEWS SET TITLE = @Title, CONTENT = @Content, ISAPPROVED = @IsApproved, URL = @Url WHERE ID = @Id";
+                connection.Execute(query, new { news.Title, news.Content, news.IsApproved, news.Url, news.Id });
+            }
+            return true;
+        }
 
         //public NewsModel GetNewsItem(int id)
         //{

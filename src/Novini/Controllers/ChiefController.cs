@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using Novini.Repository;
+using Microsoft.AspNetCore.Authorization;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -23,7 +24,9 @@ namespace Novini.Controllers
             var repo = new UserRepository();
             if (repo.CheckLoginPassword(login, password))
             {
-                await HttpContext.Authentication.SignInAsync("CustomLogin", HttpContext.User);
+                var claims = new Claim[] { new Claim(ClaimTypes.Name, "Admin"), new Claim(ClaimTypes.Role, "Administrator") };
+                var principal = new ClaimsPrincipal(new ClaimsIdentity(claims, "Basic"));
+                await HttpContext.Authentication.SignInAsync("CustomLogin", principal);
                 return LocalRedirect("/");
             }
             return View();
@@ -33,16 +36,6 @@ namespace Novini.Controllers
         {
             await HttpContext.Authentication.SignOutAsync("CustomLogin");
             return LocalRedirect("/");
-        }
-
-        public IActionResult TakeAll()
-        {
-            return View();
-        }
-
-        public IActionResult UpdateAll()
-        {
-            return View();
         }
     }
 }

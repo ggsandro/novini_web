@@ -1,0 +1,29 @@
+﻿@using Novini.Models
+@using Novini.Extensions
+@model NewsModel
+
+<div class="col-xs-12 col-md-custom-4">
+    <div class="card">
+        <div class="card-header">
+            @Html.HiddenFor(x => x.Id)
+            <div class="form-group">
+                <h4>Заголовок</h4>
+                @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <h4>Адреса посилання(URL)</h4>
+                @Html.TextBoxFor(x => x.Url, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="card-block">
+            <div class="form-group">
+                <h4>Текст</h4>
+                @Html.TextBoxFor(x => x.Content, new { @class = "form-control" })
+            </div>
+            <div class="form-group text-center">
+                <h4>Показувати на головній</h4>
+                @Html.CheckBoxFor(x => x.IsApproved, new { @class = "form-control" })
+            </div>
+        </div>
+    </div>
+</div>
