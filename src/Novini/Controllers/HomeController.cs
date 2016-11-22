@@ -52,8 +52,16 @@ namespace Novini.Controllers
             var repository = new NewsRepository();
             var scrapperRepository = new ScrapperRepository();
             var service = new WebScrapperService();
-            var templates = scrapperRepository.GetAll();
-            foreach(var template in templates)
+            var templates = new List<ScrapperTemplateModel>();            //scrapperRepository.GetAll();
+
+            templates.Add(new ScrapperTemplateModel { Url = "http://ua.korrespondent.net/", HtmlElement = "div" , Class = "article__title" });
+            templates.Add(new ScrapperTemplateModel { Url = "http://tsn.ua/", HtmlElement = "div", Class = "" });
+            templates.Add(new ScrapperTemplateModel { Url = "", HtmlElement = "div", Class = "" });
+            templates.Add(new ScrapperTemplateModel { Url = "", HtmlElement = "div", Class = "" });
+            templates.Add(new ScrapperTemplateModel { Url = "", HtmlElement = "div", Class = "" });
+
+
+            foreach (var template in templates)
             {
                 newsList.AddRange( await service.GetNewsFromUrlAsync(template.Url, template.HtmlElement, template.Class) );
             }

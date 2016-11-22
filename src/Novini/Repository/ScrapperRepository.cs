@@ -1,6 +1,9 @@
-﻿using Novini.Models;
+﻿using Dapper;
+using MySql.Data.MySqlClient;
+using Novini.Models;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -8,6 +11,13 @@ namespace Novini.Repository
 {
     public class ScrapperRepository
     {
+        private IDbConnection connection;
+        public ScrapperRepository()
+        {
+            connection = new MySqlConnection(AppSettings.AppSettings.DatabaseConnection);
+            connection.Open();
+        }
+
         public void Save()
         {
 
@@ -15,8 +25,8 @@ namespace Novini.Repository
 
         public List<ScrapperTemplateModel> GetAll()
         {
-            var resultList = new List<ScrapperTemplateModel>();
-            return resultList;
+            string query = "SELECT * FROM SCRAPPERTEMPLATE";
+            return connection.Query<ScrapperTemplateModel>(query).ToList();
         }
     }
 }
