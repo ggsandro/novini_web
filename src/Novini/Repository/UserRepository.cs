@@ -18,16 +18,7 @@ namespace Novini.Repository
 
         public UserRepository()
         {
-            var mySqlConnectionBuilder = new MySqlConnectionStringBuilder
-            {
-                Server = "localhost",
-                UserID = "novini",
-                Password = "GGSANDRO",
-                Database = "novini",
-                ConvertZeroDateTime = true,
-                UseAffectedRows = true,
-            };
-            connection = new MySqlConnection(mySqlConnectionBuilder.ConnectionString);
+            connection = new MySqlConnection(AppSettings.AppSettings.DatabaseConnection);
             connection.Open();
         }
 
@@ -41,18 +32,6 @@ namespace Novini.Repository
                 return false;
             return user.PasswordHash == HashPass(password, user.Salt);
         }
-
-        //public void UpdateNewsItem(NewsModel model)
-        //{
-        //    string query = "UPDATE NEWS SET TITLE = @Title, CONTENT = @Content, ISAPPROVED = @IsApproved, URL = @Url WHERE ID = @Id";
-        //    connection.Execute(query, new { model.Title, model.Content, model.IsApproved, model.Url, model.Id });
-        //}
-
-        //public NewsModel GetNewsItem(int id)
-        //{
-        //    string query = "Select * NEWS where Id = @id";
-        //    return connection.Query<NewsModel>(query, new { id }).SingleOrDefault();
-        //}
 
         private string HashPass(string password, byte[] salt = null)
         {

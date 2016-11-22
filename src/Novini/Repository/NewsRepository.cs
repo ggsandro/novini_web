@@ -14,16 +14,7 @@ namespace Novini.Repository
     {
         public NewsRepository()
         {
-            var mySqlConnectionBuilder = new MySqlConnectionStringBuilder
-            {
-                Server = "localhost",
-                UserID = "novini",
-                Password = "GGSANDRO",
-                Database = "novini",
-                ConvertZeroDateTime = true,
-                UseAffectedRows = true,
-            };
-            connection = new MySqlConnection(mySqlConnectionBuilder.ConnectionString);
+            connection = new MySqlConnection(AppSettings.AppSettings.DatabaseConnection);
             connection.Open();
         }
 
@@ -42,6 +33,13 @@ namespace Novini.Repository
             return true;
         }
 
+        public bool AddNewsRange(List<NewsModel> modelList)
+        {
+            string query = "INSERT INTO NEWS(TITLE,CONTENT,ISAPPROVED,URL) VALUES(@Title, @Content, @IsApproved, @Url)";
+            connection.Execute(query, modelList);
+            return true;
+        }
+
         public IEnumerable<NewsModel> TakeNews(int skip, int take)
         {
             string query = "SELECT ID,TITLE,CONTENT,TIMESTAMP,ISAPPROVED,URL FROM NEWS ORDER BY ID DESC LIMIT @take OFFSET @skip";
@@ -57,11 +55,5 @@ namespace Novini.Repository
             }
             return true;
         }
-
-        //public NewsModel GetNewsItem(int id)
-        //{
-        //    string query = "Select * NEWS where Id = @id";
-        //    return connection.Query<NewsModel>(query, new { id }).SingleOrDefault();
-        //}
     }
 }

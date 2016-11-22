@@ -1,0 +1,12 @@
+﻿@using Novini.Models
+@using Novini.Extensions
+@model List<NewsModel>
+
+@using (Html.BeginForm("UpdateNews", "Home",FormMethod.Post))
+{
+    @Html.EditorFor(model => model);
+    <div class="col-md-12 text-center">
+        <input type="submit" class="btn btn-primary" value="Зберегти">
+        <br /><br />
+    </div> 
+}

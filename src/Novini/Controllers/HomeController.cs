@@ -2,15 +2,16 @@
 using Novini.Models;
 using Novini.Repository;
 using System.Linq;
-using System.IO;
 using Newtonsoft.Json;
 using Microsoft.AspNetCore.Authorization;
 using System.Collections.Generic;
+using Novini.Services;
 
 namespace Novini.Controllers
 {
     public class HomeController : Controller
     {
+        [ResponseCache(Duration = 300)]
         public IActionResult Index()
         {
             var repository = new NewsRepository();
@@ -43,6 +44,20 @@ namespace Novini.Controllers
                 repository.TakeNews(currentElements, AppSettings.AppSettings.NewsOnPage).ToList() :
                 repository.TakeApprovedNews(currentElements, AppSettings.AppSettings.NewsOnPage).ToList();
             return JsonConvert.SerializeObject(model);
+        }
+
+        public async void SearchNews(NewsModel newsModel)
+        {
+            var newsList = new List<NewsModel>();
+            var repository = new NewsRepository();
+            var scrapperRepository = new ScrapperRepository();
+            var service = new WebScrapperService();
+            var templates = scrapperRepository.GetAll();
+            foreach(var template in templates)
+            {
+                newsList.AddRange( await service.GetNewsFromUrlAsync(template.Url, template.HtmlElement, template.Class) );
+            }
+            repository.AddNewsRange(newsList);
         }
     }
 }

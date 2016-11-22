@@ -1,0 +1,108 @@
+﻿<!doctype html>
+<html amp lang="uk">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <title>NOVINI.UA</title>
+    <link rel="icon" href="~/favicon.ico">
+
+    <link rel="stylesheet" href="~/scss/site.css">
+
+    <script type="application/ld+json">
+        {
+        "@@context": "http://schema.org",
+        "@@type": "NewsArticle",
+        "headline": "Новини",
+        "datePublished": "@DateTime.Now.Date",
+        "image": [
+        "~/favicon.ico"
+        ]
+        }
+    </script>
+</head>
+<body>
+
+    <nav class="navbar navbar-light bg-faded card-header">
+        <label class="navbar-toggler hidden-sm-up" for="menucheckbox">
+            &#9776;
+        </label>
+        <input type="checkbox" id="menucheckbox" class="hidden-xs-up" />
+        <div class="collapse container navbar-toggleable-xs" id="exCollapsingNavbar2">
+            <div class="col-md-4 col-sm-9">
+                <a class="navbar-brand pull-md-left pull-lg-left" href="/">NOVINI.UA</a>
+                <a class="btn btn-success pull-md-left pull-lg-left" id="addNewsButton" href="#">Додати новину</a>
+            </div>
+            <ul class="nav navbar-nav pull-md-right">
+                <li class="nav-item active">
+                    <a class="nav-link col-md-12" href="#" id="contactsbutton">Контакти</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <br />
+
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+
+    <footer>
+        <div class="card-footer">
+        </div>
+    </footer>
+
+    @*Modal window*@
+    <div class="overlay hidden-xs-up" id="overlay">
+        <div class="modal-content">
+            <span class="button-close" onclick="closeModal();"></span>
+            <form action="/Home/AddNewsItem" method="post" id="addNewsItem">
+                <div class="form-group">
+                    <label for="add-news-header">Заголовок (максимум 80 символів)</label>
+                    <input type="text" class="form-control" id="add-news-header" name="title" placeholder="Заголовок" required maxlength="80">
+                </div>
+                <div class="form-group">
+                    <label for="add-news-content">Текст (максимум 130 символів)</label>
+                    <input type="text" class="form-control" id="add-news-content" name="content" placeholder="Текст" required maxlength="130">
+                </div>
+                <div class="form-group">
+                    <label for="add-news-url">Адреса посилання(URL)</label>
+                    <input type="text" class="form-control" id="add-news-url" name="url" title="Будь ласка, введіть правильний URL" pattern="(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@@:%_\+.~#?&//=]*)" placeholder="http://" required maxlength="200">
+                </div>
+                <input type="submit" class="btn btn-primary pull-xs-right" value="Додати" /><br /><br />
+            </form>
+        </div>
+    </div>
+
+    @*Contact window*@
+    <div class="overlay hidden-xs-up" id="contacts">
+        <div class="modal-content">
+            <span class="button-close" onclick="closeContacts();"></span>
+            <div>
+                <h2>Контакти:</h2>
+                <p>З усіх питань пов'язаних з роботою сайту можна звертатися за адресою:</p>
+                <label>Email : dmitry90titov@gmail.com</label>
+            </div>
+        </div>
+    </div>
+
+    @*ok message*@
+    <div id="okmessage">
+        <div class="container">
+            <div class="alert alert-success offset-md-3 offset-xs-0 offset-sm-0 col-md-6 col-xs-12 col-sm-12" role="alert">
+                <strong>Дякуємо!</strong> Новина з'явиться на сайті після перевірки модератором.
+            </div>
+        </div>
+    </div>
+
+    @*error message*@
+    <div id="errormessage">
+        <div class="container">
+            <div class="alert alert-danger offset-md-3 offset-xs-0 offset-sm-0 col-md-6 col-xs-12 col-sm-12" role="alert">
+                <strong>Помилка!</strong> Не вдалося додати новину.
+            </div>
+        </div>
+    </div>
+
+    <script async src="~/js/site.es5.min.js"></script>
+</body>
+</html>
