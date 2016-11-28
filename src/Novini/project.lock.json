@@ -49,13 +49,37 @@
       "Desktop.Analyzers/1.2.0-beta2": {
         "type": "package"
       },
-      "HtmlAgilityPack/1.4.9.5": {
+      "HtmlAgilityPack.CssSelectors.NetCore/1.0.0": {
         "type": "package",
+        "dependencies": {
+          "HtmlAgilityPack.NetCore": "1.5.0.1",
+          "NETStandard.Library": "1.6.0"
+        },
         "compile": {
-          "lib/portable-net45+netcore45+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.dll": {}
+          "lib/netstandard1.5/HtmlAgilityPack.CssSelectors.NetCore.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+netcore45+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.dll": {}
+          "lib/netstandard1.5/HtmlAgilityPack.CssSelectors.NetCore.dll": {}
+        }
+      },
+      "HtmlAgilityPack.NetCore/1.5.0.1": {
+        "type": "package",
+        "dependencies": {
+          "System.Collections": "4.0.11",
+          "System.Diagnostics.Debug": "4.0.11",
+          "System.Linq": "4.1.0",
+          "System.Runtime": "4.1.0",
+          "System.Runtime.Extensions": "4.1.0",
+          "System.Runtime.InteropServices": "4.1.0",
+          "System.Text.RegularExpressions": "4.1.0",
+          "System.Threading": "4.0.11",
+          "System.Xml.XPath": "4.0.1"
+        },
+        "compile": {
+          "lib/netstandard1.3/HtmlAgilityPack.NetCore.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/HtmlAgilityPack.NetCore.dll": {}
         }
       },
       "Libuv/1.9.0": {
@@ -4258,13 +4282,37 @@
       "Desktop.Analyzers/1.2.0-beta2": {
         "type": "package"
       },
-      "HtmlAgilityPack/1.4.9.5": {
+      "HtmlAgilityPack.CssSelectors.NetCore/1.0.0": {
         "type": "package",
+        "dependencies": {
+          "HtmlAgilityPack.NetCore": "1.5.0.1",
+          "NETStandard.Library": "1.6.0"
+        },
         "compile": {
-          "lib/portable-net45+netcore45+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.dll": {}
+          "lib/netstandard1.5/HtmlAgilityPack.CssSelectors.NetCore.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+netcore45+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.dll": {}
+          "lib/netstandard1.5/HtmlAgilityPack.CssSelectors.NetCore.dll": {}
+        }
+      },
+      "HtmlAgilityPack.NetCore/1.5.0.1": {
+        "type": "package",
+        "dependencies": {
+          "System.Collections": "4.0.11",
+          "System.Diagnostics.Debug": "4.0.11",
+          "System.Linq": "4.1.0",
+          "System.Runtime": "4.1.0",
+          "System.Runtime.Extensions": "4.1.0",
+          "System.Runtime.InteropServices": "4.1.0",
+          "System.Text.RegularExpressions": "4.1.0",
+          "System.Threading": "4.0.11",
+          "System.Xml.XPath": "4.0.1"
+        },
+        "compile": {
+          "lib/netstandard1.3/HtmlAgilityPack.NetCore.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/HtmlAgilityPack.NetCore.dll": {}
         }
       },
       "Libuv/1.9.0": {
@@ -8688,13 +8736,37 @@
       "Desktop.Analyzers/1.2.0-beta2": {
         "type": "package"
       },
-      "HtmlAgilityPack/1.4.9.5": {
+      "HtmlAgilityPack.CssSelectors.NetCore/1.0.0": {
         "type": "package",
+        "dependencies": {
+          "HtmlAgilityPack.NetCore": "1.5.0.1",
+          "NETStandard.Library": "1.6.0"
+        },
         "compile": {
-          "lib/portable-net45+netcore45+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.dll": {}
+          "lib/netstandard1.5/HtmlAgilityPack.CssSelectors.NetCore.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+netcore45+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.dll": {}
+          "lib/netstandard1.5/HtmlAgilityPack.CssSelectors.NetCore.dll": {}
+        }
+      },
+      "HtmlAgilityPack.NetCore/1.5.0.1": {
+        "type": "package",
+        "dependencies": {
+          "System.Collections": "4.0.11",
+          "System.Diagnostics.Debug": "4.0.11",
+          "System.Linq": "4.1.0",
+          "System.Runtime": "4.1.0",
+          "System.Runtime.Extensions": "4.1.0",
+          "System.Runtime.InteropServices": "4.1.0",
+          "System.Text.RegularExpressions": "4.1.0",
+          "System.Threading": "4.0.11",
+          "System.Xml.XPath": "4.0.1"
+        },
+        "compile": {
+          "lib/netstandard1.3/HtmlAgilityPack.NetCore.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/HtmlAgilityPack.NetCore.dll": {}
         }
       },
       "Libuv/1.9.0": {
@@ -13120,13 +13192,37 @@
       "Desktop.Analyzers/1.2.0-beta2": {
         "type": "package"
       },
-      "HtmlAgilityPack/1.4.9.5": {
+      "HtmlAgilityPack.CssSelectors.NetCore/1.0.0": {
         "type": "package",
+        "dependencies": {
+          "HtmlAgilityPack.NetCore": "1.5.0.1",
+          "NETStandard.Library": "1.6.0"
+        },
         "compile": {
-          "lib/portable-net45+netcore45+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.dll": {}
+          "lib/netstandard1.5/HtmlAgilityPack.CssSelectors.NetCore.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+netcore45+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.dll": {}
+          "lib/netstandard1.5/HtmlAgilityPack.CssSelectors.NetCore.dll": {}
+        }
+      },
+      "HtmlAgilityPack.NetCore/1.5.0.1": {
+        "type": "package",
+        "dependencies": {
+          "System.Collections": "4.0.11",
+          "System.Diagnostics.Debug": "4.0.11",
+          "System.Linq": "4.1.0",
+          "System.Runtime": "4.1.0",
+          "System.Runtime.Extensions": "4.1.0",
+          "System.Runtime.InteropServices": "4.1.0",
+          "System.Text.RegularExpressions": "4.1.0",
+          "System.Threading": "4.0.11",
+          "System.Xml.XPath": "4.0.1"
+        },
+        "compile": {
+          "lib/netstandard1.3/HtmlAgilityPack.NetCore.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/HtmlAgilityPack.NetCore.dll": {}
         }
       },
       "Libuv/1.9.0": {
@@ -17511,13 +17607,37 @@
       "Desktop.Analyzers/1.2.0-beta2": {
         "type": "package"
       },
-      "HtmlAgilityPack/1.4.9.5": {
+      "HtmlAgilityPack.CssSelectors.NetCore/1.0.0": {
         "type": "package",
+        "dependencies": {
+          "HtmlAgilityPack.NetCore": "1.5.0.1",
+          "NETStandard.Library": "1.6.0"
+        },
         "compile": {
-          "lib/portable-net45+netcore45+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.dll": {}
+          "lib/netstandard1.5/HtmlAgilityPack.CssSelectors.NetCore.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+netcore45+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.dll": {}
+          "lib/netstandard1.5/HtmlAgilityPack.CssSelectors.NetCore.dll": {}
+        }
+      },
+      "HtmlAgilityPack.NetCore/1.5.0.1": {
+        "type": "package",
+        "dependencies": {
+          "System.Collections": "4.0.11",
+          "System.Diagnostics.Debug": "4.0.11",
+          "System.Linq": "4.1.0",
+          "System.Runtime": "4.1.0",
+          "System.Runtime.Extensions": "4.1.0",
+          "System.Runtime.InteropServices": "4.1.0",
+          "System.Text.RegularExpressions": "4.1.0",
+          "System.Threading": "4.0.11",
+          "System.Xml.XPath": "4.0.1"
+        },
+        "compile": {
+          "lib/netstandard1.3/HtmlAgilityPack.NetCore.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/HtmlAgilityPack.NetCore.dll": {}
         }
       },
       "Libuv/1.9.0": {
@@ -22033,13 +22153,37 @@
       "Desktop.Analyzers/1.2.0-beta2": {
         "type": "package"
       },
-      "HtmlAgilityPack/1.4.9.5": {
+      "HtmlAgilityPack.CssSelectors.NetCore/1.0.0": {
         "type": "package",
+        "dependencies": {
+          "HtmlAgilityPack.NetCore": "1.5.0.1",
+          "NETStandard.Library": "1.6.0"
+        },
         "compile": {
-          "lib/portable-net45+netcore45+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.dll": {}
+          "lib/netstandard1.5/HtmlAgilityPack.CssSelectors.NetCore.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+netcore45+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.dll": {}
+          "lib/netstandard1.5/HtmlAgilityPack.CssSelectors.NetCore.dll": {}
+        }
+      },
+      "HtmlAgilityPack.NetCore/1.5.0.1": {
+        "type": "package",
+        "dependencies": {
+          "System.Collections": "4.0.11",
+          "System.Diagnostics.Debug": "4.0.11",
+          "System.Linq": "4.1.0",
+          "System.Runtime": "4.1.0",
+          "System.Runtime.Extensions": "4.1.0",
+          "System.Runtime.InteropServices": "4.1.0",
+          "System.Text.RegularExpressions": "4.1.0",
+          "System.Threading": "4.0.11",
+          "System.Xml.XPath": "4.0.1"
+        },
+        "compile": {
+          "lib/netstandard1.3/HtmlAgilityPack.NetCore.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/HtmlAgilityPack.NetCore.dll": {}
         }
       },
       "Libuv/1.9.0": {
@@ -26459,13 +26603,37 @@
       "Desktop.Analyzers/1.2.0-beta2": {
         "type": "package"
       },
-      "HtmlAgilityPack/1.4.9.5": {
+      "HtmlAgilityPack.CssSelectors.NetCore/1.0.0": {
         "type": "package",
+        "dependencies": {
+          "HtmlAgilityPack.NetCore": "1.5.0.1",
+          "NETStandard.Library": "1.6.0"
+        },
         "compile": {
-          "lib/portable-net45+netcore45+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.dll": {}
+          "lib/netstandard1.5/HtmlAgilityPack.CssSelectors.NetCore.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+netcore45+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.dll": {}
+          "lib/netstandard1.5/HtmlAgilityPack.CssSelectors.NetCore.dll": {}
+        }
+      },
+      "HtmlAgilityPack.NetCore/1.5.0.1": {
+        "type": "package",
+        "dependencies": {
+          "System.Collections": "4.0.11",
+          "System.Diagnostics.Debug": "4.0.11",
+          "System.Linq": "4.1.0",
+          "System.Runtime": "4.1.0",
+          "System.Runtime.Extensions": "4.1.0",
+          "System.Runtime.InteropServices": "4.1.0",
+          "System.Text.RegularExpressions": "4.1.0",
+          "System.Threading": "4.0.11",
+          "System.Xml.XPath": "4.0.1"
+        },
+        "compile": {
+          "lib/netstandard1.3/HtmlAgilityPack.NetCore.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/HtmlAgilityPack.NetCore.dll": {}
         }
       },
       "Libuv/1.9.0": {
@@ -30872,38 +31040,25 @@
         "tools/uninstall.ps1"
       ]
     },
-    "HtmlAgilityPack/1.4.9.5": {
-      "sha512": "i5di/J7GO4y2kx/hhVzctPrBI8G2cefWZDMDU/FdOUD3iVkiidN1q1NDZ0FvqrhB28LSaYaM4Z0hs86Tnp0IzA==",
+    "HtmlAgilityPack.CssSelectors.NetCore/1.0.0": {
+      "sha512": "jv1ceQvZQRdAg4Mcv5KgxvYGSVpSJZudepjhtcoiNpA0cqcNyAsQa5Hkk3ZU+IEKJnB7Ge677AFA3v/wBNZymw==",
       "type": "package",
-      "path": "HtmlAgilityPack/1.4.9.5",
+      "path": "HtmlAgilityPack.CssSelectors.NetCore/1.0.0",
       "files": [
-        "HAPIcon.png",
-        "HtmlAgilityPack.1.4.9.5.nupkg.sha512",
-        "HtmlAgilityPack.nuspec",
-        "lib/Net20/HtmlAgilityPack.dll",
-        "lib/Net20/HtmlAgilityPack.pdb",
-        "lib/Net20/HtmlAgilityPack.xml",
-        "lib/Net40-client/HtmlAgilityPack.dll",
-        "lib/Net40-client/HtmlAgilityPack.pdb",
-        "lib/Net40-client/HtmlAgilityPack.xml",
-        "lib/Net40/HtmlAgilityPack.XML",
-        "lib/Net40/HtmlAgilityPack.dll",
-        "lib/Net40/HtmlAgilityPack.pdb",
-        "lib/Net45/HtmlAgilityPack.XML",
-        "lib/Net45/HtmlAgilityPack.dll",
-        "lib/Net45/HtmlAgilityPack.pdb",
-        "lib/NetCore45/HtmlAgilityPack.dll",
-        "lib/NetCore45/HtmlAgilityPack.pdb",
-        "lib/NetCore45/HtmlAgilityPack.pri",
-        "lib/NetCore45/HtmlAgilityPack.xml",
-        "lib/portable-net45+netcore45+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.dll",
-        "lib/portable-net45+netcore45+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.pdb",
-        "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.dll",
-        "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.pdb",
-        "lib/sl5/HtmlAgilityPack.XML",
-        "lib/sl5/HtmlAgilityPack.dll",
-        "lib/sl5/HtmlAgilityPack.pdb",
-        "readme.txt"
+        "HtmlAgilityPack.CssSelectors.NetCore.1.0.0.nupkg.sha512",
+        "HtmlAgilityPack.CssSelectors.NetCore.nuspec",
+        "lib/netstandard1.5/HtmlAgilityPack.CssSelectors.NetCore.dll"
+      ]
+    },
+    "HtmlAgilityPack.NetCore/1.5.0.1": {
+      "sha512": "N6FUlFbidfiWu1TcrNDQufaU5TbZ2RRn+kYHjwsLxcklQU8Cnmul+pTn2clKausZRHeFVxGp2ZECIWuDvot8Hg==",
+      "type": "package",
+      "path": "HtmlAgilityPack.NetCore/1.5.0.1",
+      "files": [
+        "HtmlAgilityPack.NetCore.1.5.0.1.nupkg.sha512",
+        "HtmlAgilityPack.NetCore.nuspec",
+        "lib/net45/HtmlAgilityPack.NetCore.dll",
+        "lib/netstandard1.3/HtmlAgilityPack.NetCore.dll"
       ]
     },
     "Libuv/1.9.0": {
@@ -38685,7 +38840,7 @@
     "": [
       "BundlerMinifier.Core >= 2.2.301",
       "Dapper >= 1.50.2",
-      "HtmlAgilityPack >= 1.4.9.5",
+      "HtmlAgilityPack.CssSelectors.NetCore >= 1.0.0",
       "Microsoft.ApplicationInsights.AspNetCore >= 1.0.1",
       "Microsoft.AspNetCore.Authentication.Cookies >= 1.0.0",
       "Microsoft.AspNetCore.Cryptography.KeyDerivation >= 1.0.0",

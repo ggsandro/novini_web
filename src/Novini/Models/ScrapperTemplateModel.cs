@@ -9,7 +9,7 @@ namespace Novini.Models
     {
         public int Id { get; set; }
         public string Url { get; set; }
-        public string HtmlElement { get; set; }
-        public string Class { get; set; }
+        public string TitleHtmlSelector { get; set; }
+        public string LinkHtmlSelector { get; set; }
     }
 }

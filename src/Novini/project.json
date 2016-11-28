@@ -32,10 +32,10 @@
     "Newtonsoft.Json": "9.0.1",
     "Microsoft.AspNetCore.Cryptography.KeyDerivation": "1.0.0",
     "Microsoft.AspNetCore.Authentication.Cookies": "1.0.0",
-    "HtmlAgilityPack": "1.4.9.5",
     "BundlerMinifier.Core": "2.2.301",
     "MySqlConnector": "0.6.2",
-    "system.xml.xpath.xmldocument": "4.0.0"},
+    "system.xml.xpath.xmldocument": "4.0.0",
+    "HtmlAgilityPack.CssSelectors.NetCore": "1.0.0"},
 
   "tools": {
     "Microsoft.AspNetCore.Razor.Tools": "1.0.0-preview2-final",

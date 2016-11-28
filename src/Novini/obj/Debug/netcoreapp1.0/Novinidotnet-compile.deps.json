@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v1.0/",
-    "signature": "5babc58c64f7d1de67a7f7fad385bf39e7e8096e"
+    "signature": "16451afa180824dea3d43a41675e167f40c89aa8"
   },
   "compilationOptions": {
     "defines": [
@@ -36,10 +36,10 @@
           "Newtonsoft.Json": "9.0.1",
           "Microsoft.AspNetCore.Cryptography.KeyDerivation": "1.0.0",
           "Microsoft.AspNetCore.Authentication.Cookies": "1.0.0",
-          "HtmlAgilityPack": "1.4.9.5",
           "BundlerMinifier.Core": "2.2.301",
           "MySqlConnector": "0.6.2",
-          "system.xml.xpath.xmldocument": "4.0.0"
+          "system.xml.xpath.xmldocument": "4.0.0",
+          "HtmlAgilityPack.CssSelectors.NetCore": "1.0.0"
         },
         "compile": {
           "Novini.dll": {}
@@ -81,9 +81,29 @@
         }
       },
       "Desktop.Analyzers/1.2.0-beta2": {},
-      "HtmlAgilityPack/1.4.9.5": {
+      "HtmlAgilityPack.CssSelectors.NetCore/1.0.0": {
+        "dependencies": {
+          "HtmlAgilityPack.NetCore": "1.5.0.1",
+          "NETStandard.Library": "1.6.0"
+        },
         "compile": {
-          "lib/portable-net45+netcore45+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.dll": {}
+          "lib/netstandard1.5/HtmlAgilityPack.CssSelectors.NetCore.dll": {}
+        }
+      },
+      "HtmlAgilityPack.NetCore/1.5.0.1": {
+        "dependencies": {
+          "System.Collections": "4.0.11",
+          "System.Diagnostics.Debug": "4.0.11",
+          "System.Linq": "4.1.0",
+          "System.Runtime": "4.1.0",
+          "System.Runtime.Extensions": "4.1.0",
+          "System.Runtime.InteropServices": "4.1.0",
+          "System.Text.RegularExpressions": "4.1.0",
+          "System.Threading": "4.0.11",
+          "System.Xml.XPath": "4.0.1"
+        },
+        "compile": {
+          "lib/netstandard1.3/HtmlAgilityPack.NetCore.dll": {}
         }
       },
       "Libuv/1.9.0": {
@@ -2904,10 +2924,10 @@
           "Newtonsoft.Json": "9.0.1",
           "Microsoft.AspNetCore.Cryptography.KeyDerivation": "1.0.0",
           "Microsoft.AspNetCore.Authentication.Cookies": "1.0.0",
-          "HtmlAgilityPack": "1.4.9.5",
           "BundlerMinifier.Core": "2.2.301",
           "MySqlConnector": "0.6.2",
-          "system.xml.xpath.xmldocument": "4.0.0"
+          "system.xml.xpath.xmldocument": "4.0.0",
+          "HtmlAgilityPack.CssSelectors.NetCore": "1.0.0"
         },
         "runtime": {
           "Novini.dll": {}
@@ -2949,9 +2969,29 @@
         }
       },
       "Desktop.Analyzers/1.2.0-beta2": {},
-      "HtmlAgilityPack/1.4.9.5": {
+      "HtmlAgilityPack.CssSelectors.NetCore/1.0.0": {
+        "dependencies": {
+          "HtmlAgilityPack.NetCore": "1.5.0.1",
+          "NETStandard.Library": "1.6.0"
+        },
         "runtime": {
-          "lib/portable-net45+netcore45+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.dll": {}
+          "lib/netstandard1.5/HtmlAgilityPack.CssSelectors.NetCore.dll": {}
+        }
+      },
+      "HtmlAgilityPack.NetCore/1.5.0.1": {
+        "dependencies": {
+          "System.Collections": "4.0.11",
+          "System.Diagnostics.Debug": "4.0.11",
+          "System.Linq": "4.1.0",
+          "System.Runtime": "4.1.0",
+          "System.Runtime.Extensions": "4.1.0",
+          "System.Runtime.InteropServices": "4.1.0",
+          "System.Text.RegularExpressions": "4.1.0",
+          "System.Threading": "4.0.11",
+          "System.Xml.XPath": "4.0.1"
+        },
+        "runtime": {
+          "lib/netstandard1.3/HtmlAgilityPack.NetCore.dll": {}
         }
       },
       "Libuv/1.9.0": {
@@ -5663,10 +5703,15 @@
       "serviceable": true,
       "sha512": "sha512-casK1/J2ZJ6X45hRaEwRWq/n7cjnAJCf31G6DsFQYIeE0aunDEnoO2xY2fO3gni7BgVfetWihLZa7ucymMRJDQ=="
     },
-    "HtmlAgilityPack/1.4.9.5": {
+    "HtmlAgilityPack.CssSelectors.NetCore/1.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-i5di/J7GO4y2kx/hhVzctPrBI8G2cefWZDMDU/FdOUD3iVkiidN1q1NDZ0FvqrhB28LSaYaM4Z0hs86Tnp0IzA=="
+      "sha512": "sha512-jv1ceQvZQRdAg4Mcv5KgxvYGSVpSJZudepjhtcoiNpA0cqcNyAsQa5Hkk3ZU+IEKJnB7Ge677AFA3v/wBNZymw=="
+    },
+    "HtmlAgilityPack.NetCore/1.5.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-N6FUlFbidfiWu1TcrNDQufaU5TbZ2RRn+kYHjwsLxcklQU8Cnmul+pTn2clKausZRHeFVxGp2ZECIWuDvot8Hg=="
     },
     "Libuv/1.9.0": {
       "type": "package",

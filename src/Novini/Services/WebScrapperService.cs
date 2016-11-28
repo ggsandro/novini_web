@@ -1,28 +1,32 @@
-﻿using HtmlAgilityPack;
+﻿
 using Novini.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Xml;
+using System.Xml.Linq;
 using System.Net;
 using System.Threading.Tasks;
+using HtmlAgilityPack;
+using HtmlAgilityPack.CssSelectors.NetCore;
 
 namespace Novini.Services
 {
     public class WebScrapperService
     {
-        public async Task<List<NewsModel>> GetNewsFromUrlAsync(string url, string htmlElem, string htmlClass)
+        public async Task<List<NewsModel>> GetNewsFromUrlAsync(ScrapperTemplateModel template)
         {
-            var html = await GetHtml(url);
-            return ParseResult(html, htmlElem, htmlClass);
+            var html = await GetHtml(template.Url);
+            return ParseResult(html, template);
         }
 
         private async Task<HtmlDocument> GetHtml(string url)
         {
-            HtmlDocument htmlDoc = new HtmlDocument();
+            var htmlDoc = new HtmlDocument();
             htmlDoc.OptionFixNestedTags = true;
 
             string urlToLoad = url;
             HttpWebRequest request = HttpWebRequest.Create(urlToLoad) as HttpWebRequest;
+            request.ContinueTimeout = 5000;
             request.Method = "GET";
             request.Accept = "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8";
 
@@ -31,25 +35,27 @@ namespace Novini.Services
             return htmlDoc;
         }
 
-        private List<NewsModel> ParseResult(HtmlDocument htmlDoc, string htmlElem, string htmlClass)
+        private List<NewsModel> ParseResult(HtmlDocument htmlDoc, ScrapperTemplateModel template)
         {
             var resultList = new List<NewsModel>();
             if (htmlDoc.DocumentNode != null)
             {
-                var titleDivNode = htmlDoc.DocumentNode.Descendants(htmlElem)
-                    .Where(x => x.Attributes["class"] != null && x.Attributes["class"].Value == htmlClass).ToList();
+                var titleNodes = htmlDoc.QuerySelectorAll(template.TitleHtmlSelector);
+                var urlNodes = htmlDoc.QuerySelectorAll(template.LinkHtmlSelector);
 
-                foreach (var elem in titleDivNode)
-                {
-                    var title = WebUtility.HtmlDecode(elem.FirstChild.InnerText.Trim());
-                    var elemUrl = elem.FirstChild.Attributes["href"].Value;
-                    var item = new NewsModel
+                if (titleNodes.Count == urlNodes.Count) {
+                    for (var i = 0; i < titleNodes.Count; i++)
                     {
-                        Title = title,
-                        Url = elemUrl,
-                        Content = title
-                    };
-                    resultList.Add(item);
+                        var title = WebUtility.HtmlDecode(titleNodes[i].InnerText.Trim());
+                        var elemUrl = urlNodes[i].Attributes["href"].Value;
+                        var item = new NewsModel
+                        {
+                            Title = title,
+                            Url = elemUrl,
+                            Content = title
+                        };
+                        resultList.Add(item);
+                    }
                 }
             }
             return resultList;

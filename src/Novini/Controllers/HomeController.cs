@@ -6,6 +6,7 @@ using Newtonsoft.Json;
 using Microsoft.AspNetCore.Authorization;
 using System.Collections.Generic;
 using Novini.Services;
+using System;
 
 namespace Novini.Controllers
 {
@@ -54,17 +55,30 @@ namespace Novini.Controllers
             var service = new WebScrapperService();
             var templates = new List<ScrapperTemplateModel>();            //scrapperRepository.GetAll();
 
-            templates.Add(new ScrapperTemplateModel { Url = "http://ua.korrespondent.net/", HtmlElement = "div" , Class = "article__title" });
-            templates.Add(new ScrapperTemplateModel { Url = "http://tsn.ua/", HtmlElement = "div", Class = "" });
-            templates.Add(new ScrapperTemplateModel { Url = "", HtmlElement = "div", Class = "" });
-            templates.Add(new ScrapperTemplateModel { Url = "", HtmlElement = "div", Class = "" });
-            templates.Add(new ScrapperTemplateModel { Url = "", HtmlElement = "div", Class = "" });
-
+            templates.Add(new ScrapperTemplateModel { Url = "http://ua.korrespondent.net/", TitleHtmlSelector = "div.article__title a", LinkHtmlSelector = "div.article__title a" });
+            templates.Add(new ScrapperTemplateModel { Url = "http://tsn.ua/", TitleHtmlSelector = "div.g_item a.link span.title", LinkHtmlSelector = "div.g_item a.link" });
+            // ?? templates.Add(new ScrapperTemplateModel { Url = "http://www.pravda.com.ua/news/", TitleHtmlSelector = "div.article__title a", LinkHtmlSelector = "div.article__title a" });
+            templates.Add(new ScrapperTemplateModel { Url = "http://www.unian.ua/", TitleHtmlSelector = "div.label a", LinkHtmlSelector = "div.label a" });
+            templates.Add(new ScrapperTemplateModel { Url = "http://gazeta.ua/", TitleHtmlSelector = "section.item a", LinkHtmlSelector = "section.item a" });
+            templates.Add(new ScrapperTemplateModel { Url = "http://ukr.obozrevatel.com/", TitleHtmlSelector = "a.ttl", LinkHtmlSelector = "a.ttl" });
+            templates.Add(new ScrapperTemplateModel { Url = "http://zik.ua/news/all", TitleHtmlSelector = "ul.news-list div.news-title", LinkHtmlSelector = "ul.news-list a" });
 
             foreach (var template in templates)
             {
-                newsList.AddRange( await service.GetNewsFromUrlAsync(template.Url, template.HtmlElement, template.Class) );
+                try
+                {
+                    var news = await service.GetNewsFromUrlAsync(template);
+                    newsList.AddRange(news);
+                } catch(Exception ex)
+                {
+                    //Send Email
+                }
             }
+
+            //Delete items that already in database
+            var dbList = repository.TakeNews(0, int.MaxValue).Select(x => x.Url).ToList();
+            newsList = newsList.Where(x => !dbList.Contains(x.Url)).ToList();
+
             repository.AddNewsRange(newsList);
         }
     }
