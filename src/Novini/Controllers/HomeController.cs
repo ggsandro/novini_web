@@ -12,7 +12,7 @@ namespace Novini.Controllers
 {
     public class HomeController : Controller
     {
-        [ResponseCache(Duration = 300)]
+        //[ResponseCache(Duration = 300)]
         public IActionResult Index()
         {
             var repository = new NewsRepository();
