@@ -177,7 +177,7 @@ function GetNews(isAdmin, countNews) {
                 htmlToAdd += htmlElem;
             }
             adminForm.insertAdjacentHTML('beforeend', htmlToAdd);
-            elementsOnPage.value += dataArray.length;
+            elementsOnPage.value = parseInt(elementsOnPage.value) + parseInt(dataArray.length);
             hideSpiner();
         } else {
             // We reached our target server, but it returned an error

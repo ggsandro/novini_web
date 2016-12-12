@@ -13,8 +13,10 @@
 --version:1.0.0.0
 --informational-version:1.0.0
 --target-framework:.NETCoreApp,Version=v1.0
---reference:C:\Users\dmitr\.nuget\packages\BundlerMinifier.Core\2.2.281\lib\netcoreapp1.0\dotnet-bundle.dll
+--reference:C:\Users\dmitr\.nuget\packages\BundlerMinifier.Core\2.2.301\lib\netcoreapp1.0\dotnet-bundle.dll
 --reference:C:\Users\dmitr\.nuget\packages\Dapper\1.50.2\lib\netstandard1.3\Dapper.dll
+--reference:C:\Users\dmitr\.nuget\packages\HtmlAgilityPack.CssSelectors.NetCore\1.0.0\lib\netstandard1.5\HtmlAgilityPack.CssSelectors.NetCore.dll
+--reference:C:\Users\dmitr\.nuget\packages\HtmlAgilityPack.NetCore\1.5.0.1\lib\netstandard1.3\HtmlAgilityPack.NetCore.dll
 --reference:C:\Users\dmitr\.nuget\packages\Microsoft.ApplicationInsights\2.1.0\lib\dotnet5.4\Microsoft.ApplicationInsights.dll
 --reference:C:\Users\dmitr\.nuget\packages\Microsoft.ApplicationInsights.AspNetCore\1.0.1\lib\netstandard1.6\Microsoft.ApplicationInsights.AspNetCore.dll
 --reference:C:\Users\dmitr\.nuget\packages\Microsoft.AspNetCore.Antiforgery\1.0.1\lib\netstandard1.3\Microsoft.AspNetCore.Antiforgery.dll
@@ -102,7 +104,7 @@
 --reference:C:\Users\dmitr\.nuget\packages\Microsoft.VisualStudio.Web.BrowserLink.Loader\14.0.0\lib\netstandard1.5\Microsoft.VisualStudio.Web.BrowserLink.Loader.dll
 --reference:C:\Users\dmitr\.nuget\packages\Microsoft.Win32.Primitives\4.0.1\ref\netstandard1.3\Microsoft.Win32.Primitives.dll
 --reference:C:\Users\dmitr\.nuget\packages\Microsoft.Win32.Registry\4.0.0\ref\netstandard1.3\Microsoft.Win32.Registry.dll
---reference:C:\Users\dmitr\.nuget\packages\MySqlConnector\0.2.0\lib\netstandard1.3\MySqlConnector.dll
+--reference:C:\Users\dmitr\.nuget\packages\MySqlConnector\0.6.2\lib\netstandard1.3\MySqlConnector.dll
 --reference:C:\Users\dmitr\.nuget\packages\Newtonsoft.Json\9.0.1\lib\netstandard1.0\Newtonsoft.Json.dll
 --reference:C:\Users\dmitr\.nuget\packages\NuGet.Common\3.5.0-beta2-1484\lib\netstandard1.3\NuGet.Common.dll
 --reference:C:\Users\dmitr\.nuget\packages\NuGet.Configuration\3.5.0-beta2-1484\lib\netstandard1.3\NuGet.Configuration.dll
@@ -206,6 +208,8 @@
 --reference:C:\Users\dmitr\.nuget\packages\System.Xml.ReaderWriter\4.0.11\ref\netstandard1.3\System.Xml.ReaderWriter.dll
 --reference:C:\Users\dmitr\.nuget\packages\System.Xml.XDocument\4.0.11\ref\netstandard1.3\System.Xml.XDocument.dll
 --reference:C:\Users\dmitr\.nuget\packages\System.Xml.XmlDocument\4.0.1\ref\netstandard1.3\System.Xml.XmlDocument.dll
+--reference:C:\Users\dmitr\.nuget\packages\System.Xml.XPath\4.0.1\ref\netstandard1.3\System.Xml.XPath.dll
+--reference:C:\Users\dmitr\.nuget\packages\system.xml.xpath.xmldocument\4.0.0\ref\dotnet\System.Xml.XPath.XmlDocument.dll
 --resource:"C:\Projects\novini_web\src\Novini\obj\Release\netcoreapp1.0\Novinidotnet-compile.deps.json",Novini.deps.json
 C:\Projects\novini_web\src\Novini\Program.cs
 C:\Projects\novini_web\src\Novini\Startup.cs
@@ -214,6 +218,9 @@ C:\Projects\novini_web\src\Novini\Controllers\ChiefController.cs
 C:\Projects\novini_web\src\Novini\Controllers\HomeController.cs
 C:\Projects\novini_web\src\Novini\Extensions\StringExtensions.cs
 C:\Projects\novini_web\src\Novini\Models\NewsModel.cs
+C:\Projects\novini_web\src\Novini\Models\ScrapperTemplateModel.cs
 C:\Projects\novini_web\src\Novini\Models\UserModel.cs
 C:\Projects\novini_web\src\Novini\Repository\NewsRepository.cs
+C:\Projects\novini_web\src\Novini\Repository\ScrapperRepository.cs
 C:\Projects\novini_web\src\Novini\Repository\UserRepository.cs
+C:\Projects\novini_web\src\Novini\Services\WebScrapperService.cs

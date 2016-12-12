@@ -8,6 +8,7 @@ using System.Net;
 using System.Threading.Tasks;
 using HtmlAgilityPack;
 using HtmlAgilityPack.CssSelectors.NetCore;
+using System.IO;
 
 namespace Novini.Services
 {
@@ -48,6 +49,14 @@ namespace Novini.Services
                     {
                         var title = WebUtility.HtmlDecode(titleNodes[i].InnerText.Trim());
                         var elemUrl = urlNodes[i].Attributes["href"].Value;
+                        if(!elemUrl.Contains("http"))
+                        {
+                            Uri result = null;
+                            if (Uri.TryCreate(new Uri(template.Url), elemUrl, out result))
+                            {
+                                elemUrl = result.AbsoluteUri;
+                            }
+                        }
                         var item = new NewsModel
                         {
                             Title = title,
